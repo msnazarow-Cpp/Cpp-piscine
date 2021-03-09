@@ -8,6 +8,6 @@ int main()
 	std::string &ppstr = str;
 
 	std::cout << str << *pstr << ppstr;
-	std::cout << &str << std::endl << &pstr  << std::endl  << &ppstr << std::endl ;
+	std::cout << &str << std::endl << pstr  << std::endl  << &ppstr << std::endl ;
 	return 0;
 }
