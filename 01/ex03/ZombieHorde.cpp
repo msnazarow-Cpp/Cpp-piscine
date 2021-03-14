@@ -16,12 +16,14 @@ Zombie	ZombieHorde::randomChump()
 
 ZombieHorde::ZombieHorde(int N):number(N)
 {
-	this->Zombies = new Zombie[N];
+	Zombie hord[N];
+	//this->Zombies = new Zombie[N];
 	for (int i = 0; i < N; i++)
-		Zombies[i] = randomChump();
+		hord[i] = randomChump();
+	Zombies = hord;
 }
 
 ZombieHorde::~ZombieHorde()
 {
-	delete [] this->Zombies;
+	//delete [] this->Zombies;
 }

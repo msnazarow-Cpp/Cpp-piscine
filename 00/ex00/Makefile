@@ -2,7 +2,7 @@ OBJ = megaphone.o
 NAME = megaphone
 CXX = clang++ -std=c++98
 
-CPPFLAGS = -Wall -Wextra -Werror -g
+CPPFLAGS = -Wall -Wextra -Werror -g -D_GLIBCXX_DEBUG
 
 all: $(NAME)
 

@@ -2,7 +2,7 @@
 
 int main(int argc, char const *argv[])
 {
-	std::string str;
+	std::string str = "Lala just test string";
 	if (argc == 1)
 	std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
 	else {
