@@ -21,9 +21,15 @@ NinjaTrap::~NinjaTrap()
 	std::cout << "INAC-TP " << getName() << " Dies and you can do Nothing!\n";
 }
 
-NinjaTrap::NinjaTrap(NinjaTrap &a):ClapTrap(a)
+NinjaTrap::NinjaTrap(const NinjaTrap &a):ClapTrap(a)
 {
 	std::cout << "INAC-TP " << getName() << " is Alive!\n";
+}
+
+NinjaTrap& NinjaTrap::operator=(const NinjaTrap &a)
+{
+	ClapTrap::operator=(a);
+	return (*this);
 }
 
 void NinjaTrap::ninjaShoebox(ClapTrap &a)

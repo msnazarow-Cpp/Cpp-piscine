@@ -7,9 +7,20 @@ AssaultTerminator::AssaultTerminator()
 	std::cout << "* teleports from space *" << std::endl;
 }
 
+AssaultTerminator& AssaultTerminator::operator=(const AssaultTerminator&a)
+{
+	ISpaceMarine::operator=(a);
+	return (*this);
+}
+
 AssaultTerminator::~AssaultTerminator()
 {
 	std::cout << "I’ll be back..." << std::endl;
+}
+
+AssaultTerminator::AssaultTerminator(const AssaultTerminator&a):ISpaceMarine(a)
+{
+	std::cout << "* teleports from space *" << std::endl;
 }
 
 AssaultTerminator *AssaultTerminator::clone() const {

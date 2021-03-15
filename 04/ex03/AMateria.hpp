@@ -1,15 +1,14 @@
 #ifndef __AMATERIA_H__
 #define __AMATERIA_H__
-
-#pragma once
 #include <string>
 #include "ICharacter.hpp"
-
+class ICharacter;
 class AMateria
 {
 	private:
-		std::string _type;
 		unsigned int _xp;
+		std::string _type;
+
 	public:
 		AMateria(std::string const & type);
 
@@ -18,5 +17,9 @@ class AMateria
 		unsigned int getXP() const; //Returns the Materia's XP
 		virtual AMateria* clone() const = 0;
 		virtual void use(ICharacter& target);
+
+		AMateria &operator=(const AMateria &);
+		AMateria(const AMateria &a);
 };
+
 #endif // __AMATERIA_H__

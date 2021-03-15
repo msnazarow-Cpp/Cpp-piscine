@@ -7,6 +7,8 @@ private:
 	/* data */
 public:
 	Peon(std::string name);
+	Peon(const Peon &);
+	Peon &operator=(const Peon &);
 	void getPolymorphed() const;
 	~Peon();
 };

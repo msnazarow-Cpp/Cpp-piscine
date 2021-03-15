@@ -3,24 +3,30 @@
 #include <cstdlib>
 
 ScavTrap::ScavTrap(std::string name):ClapTrap(name){
-	this->setType("SC4V-TP ");
-	this->setHitpoints(100);
-	this->setMaxhitpoints(100);
-	this->setLevel(1);
-	this->setEnergypoints(50);
-	this->setMaxenegrypoints(50);
-	this->setMelee(20);
-	this->setRanged(15);
-	this->setArmor(3);
+	setType("SC4V-TP ");
+	setHitpoints(100);
+	setMaxhitpoints(100);
+	setLevel(1);
+	setEnergypoints(50);
+	setMaxenegrypoints(50);
+	setMelee(20);
+	setRanged(15);
+	setArmor(3);
 	std::cout << "SC4V-TP " << name << " is Alive!\n";}
 
-ScavTrap::ScavTrap(ScavTrap &a):ClapTrap(a)
+ScavTrap::ScavTrap(const ScavTrap &a):ClapTrap(a)
 {
 	std::cout << "SC4V-TP " << getName() << " is Alive!\n";
 }
 
 ScavTrap::~ScavTrap(){
 	std::cout << "SC4V-TP " << getName() << " Dies and you can do Nothing!\n";}
+
+ScavTrap& ScavTrap::operator=(const ScavTrap &a)
+{
+	ClapTrap::operator=(a);
+	return (*this);
+}
 
 void	ScavTrap::challengeNewcomer()
 {

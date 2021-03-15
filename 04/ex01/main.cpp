@@ -43,7 +43,6 @@ int main()
 	Samurai->attack(supmt);
 	std::cout << *Samurai;
 	Samurai->attack(supmt);
-	std::cout << *Samurai;
 	delete pr;
 	delete pf;
 	delete Samurai;

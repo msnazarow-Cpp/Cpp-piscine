@@ -7,6 +7,17 @@ SuperMutant::SuperMutant(/* args */):Enemy(170, "Super Mutant")
 	std::cout <<  "Gaaah. Me want smash heads!\n";
 }
 
+SuperMutant::SuperMutant(const SuperMutant &a):Enemy(a)
+{
+
+}
+
+SuperMutant& SuperMutant::operator=(const SuperMutant &a)
+{
+	Enemy::operator=(a);
+	return(*this);
+}
+
 SuperMutant::~SuperMutant()
 {
 	std::cout << "Aaargh...\n";

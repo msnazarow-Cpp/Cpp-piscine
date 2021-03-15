@@ -11,8 +11,8 @@ private:
 
 public:
 	List(myclass *content = 0);
-	List(List &list);
-	List &operator=(List &list);
+	List(const List &list);
+	List &operator=(const List &list);
 
 	int push(myclass *content);
 	myclass *getUnit(int n);

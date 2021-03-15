@@ -6,6 +6,7 @@ class FragTrap : virtual public ClapTrap
 public:
 	FragTrap(std::string name);
 	~FragTrap();
-	FragTrap(FragTrap &);
+	FragTrap(const FragTrap &);
+	FragTrap &operator=(const FragTrap &);
 	int vaulthunter_dot_exe(std::string const & target);
 };

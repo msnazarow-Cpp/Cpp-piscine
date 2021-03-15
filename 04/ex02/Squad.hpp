@@ -10,8 +10,8 @@ private:
 public:
 	Squad();
 	~Squad();
-	Squad(Squad &);
-	Squad &operator=(Squad&);
+	Squad(const Squad &);
+	Squad &operator=(const Squad &);
 
 	ISpaceMarine *getUnit(int n) const;
 	int getCount() const;

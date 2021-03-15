@@ -4,25 +4,25 @@
 Fixed::Fixed()
 {
 	//std::cout << "Default constructor called\n";
-	number = 0;
+	_number = 0;
 }
 
 Fixed::Fixed(const int n)
 {
 	//std::cout << "Int constructor called\n";
-	number = n << bits;
+	_number = n << _bits;
 }
 
 Fixed::Fixed(const float n)
 {
 	//std::cout << "Float constructor called\n";
-	number = n * (1 << bits);
+	_number = n * (1 << _bits);
 }
 
 Fixed::Fixed(const Fixed &b)
 {
 	//std::cout << "Copy constructor called\n";
-	this->number = b.getRawBits();
+	this->_number = b.getRawBits();
 }
 Fixed::~Fixed()
 {
@@ -32,26 +32,26 @@ Fixed::~Fixed()
 int Fixed::getRawBits() const
 {
 	//std::cout << "getRawBits member function called\n";
-	return(this->number);
+	return(this->_number);
 }
 
 void Fixed::setRawBits(int const raw)
 {
-	this->number = raw;
+	this->_number = raw;
 }
 
 int Fixed::toInt(void) const{
-	return (number >> bits);
+	return (_number >> _bits);
 }
 
 float Fixed::toFloat(void) const{
-	return ((float)number / (float)(1 << bits));
+	return ((float)_number / (float)(1 << _bits));
 }
 
 Fixed & Fixed::operator = (const Fixed &a)
 {
 	//std::cout << "Assignation operator called\n";
-	this->number = a.getRawBits();
+	this->_number = a.getRawBits();
 	return *this;
 }
 
@@ -126,27 +126,27 @@ Fixed operator / (const Fixed &a, const Fixed &b)
 
 Fixed &Fixed::operator ++ ()
 {
-	number++;
+	_number++;
 	return (*this);
 }
 
 Fixed &Fixed::operator -- ()
 {
-	number--;
+	_number--;
 	return (*this);
 }
 
 Fixed Fixed::operator ++ (int)
 {
 	Fixed a = *this;
-	number++;
+	_number++;
 	return(a);
 }
 
 Fixed Fixed::operator -- (int)
 {
 	Fixed a = *this;
-	number--;
+	_number--;
 	return(a);
 }
 

@@ -6,9 +6,10 @@ Victim::Victim(std::string name):name(name)
 	std::cout <<"Some random victim called "<< name <<" just appeared!\n";
 }
 
-Victim::Victim(Victim &a)
+Victim::Victim(const Victim &a)
 {
 	*this = a;
+	std::cout <<"Some random victim called "<< name <<" just appeared!\n";
 }
 
 std::string Victim::getName() const {
@@ -23,10 +24,9 @@ void Victim::getPolymorphed() const {
 	std::cout << name << " has been turned into a cute little sheep!\n";
 }
 
-Victim &Victim::operator = (Victim &a)
+Victim &Victim::operator = (const Victim &a)
 {
 	name = a.name;
-
 	return (*this);
 }
 

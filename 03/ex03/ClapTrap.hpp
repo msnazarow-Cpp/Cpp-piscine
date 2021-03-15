@@ -18,7 +18,7 @@ private:
 public:
 	ClapTrap(std::string name);
 	~ClapTrap();
-	ClapTrap(ClapTrap &);
+	ClapTrap(const ClapTrap &);
 	int rangedAttack(std::string const &);
 	int meleeAttack(std::string const &);
 	int takeDamage(unsigned int);

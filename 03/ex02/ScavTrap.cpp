@@ -14,9 +14,15 @@ ScavTrap::ScavTrap(std::string name):ClapTrap(name){
 	this->setArmor(3);
 	std::cout << "SC4V-TP " << name << " is Alive!\n";}
 
-ScavTrap::ScavTrap(ScavTrap &a):ClapTrap(a)
+ScavTrap::ScavTrap(const ScavTrap &a):ClapTrap(a)
 {
 	std::cout << "SC4V-TP " << getName() << " is Alive!\n";
+}
+
+ScavTrap& ScavTrap::operator=(const ScavTrap &a)
+{
+	this->ClapTrap::operator=(a);
+	return (*this);
 }
 
 ScavTrap::~ScavTrap(){

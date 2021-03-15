@@ -11,6 +11,8 @@ class Character
 		AWeapon *weapon;
 	public:
 	Character(std::string const & name);
+	Character(const Character &);
+	Character &operator=(const Character &);
 	~Character();
 	void recoverAP();
 	void equip(AWeapon*);

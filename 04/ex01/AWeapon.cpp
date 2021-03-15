@@ -17,14 +17,14 @@ int AWeapon::getDamage() const {
 	return (damage);
 }
 
-AWeapon &AWeapon::operator=(AWeapon &a) {
+AWeapon &AWeapon::operator=(const AWeapon &a) {
 	name = a.name;
 	damage = a.damage;
 	apcost = a.apcost;
 	return (*this);
 }
 
-AWeapon::AWeapon(AWeapon &a)
+AWeapon::AWeapon(const AWeapon &a)
 {
 	*this = a;
 }

@@ -4,20 +4,26 @@
 #include <cstdlib>
 
 FragTrap::FragTrap(std::string name):ClapTrap(name) {
-	this->setType("FR4G-TP ");
-	this->setHitpoints(100);
-	this->setMaxhitpoints(100);
-	this->setLevel(1);
-	this->setEnergypoints(100);
-	this->setMaxenegrypoints(100);
-	this->setMelee(30);
-	this->setRanged(20);
-	this->setArmor(5);
+	setType("FR4G-TP ");
+	setHitpoints(100);
+	setMaxhitpoints(100);
+	setLevel(1);
+	setEnergypoints(100);
+	setMaxenegrypoints(100);
+	setMelee(30);
+	setRanged(20);
+	setArmor(5);
 	std::cout << "FR4G-TP " << name << " is Alive!\n";}
 
-FragTrap::FragTrap(FragTrap &a):ClapTrap(a)
+FragTrap::FragTrap(const FragTrap &a):ClapTrap(a)
 {
 	std::cout << "FR4G-TP " << getName() << " is Alive!\n";
+}
+
+FragTrap& FragTrap::operator=(const FragTrap &a)
+{
+	this->ClapTrap::operator=(a);
+	return(*this);
 }
 
 FragTrap::~FragTrap(){

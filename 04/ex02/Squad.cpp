@@ -32,7 +32,7 @@ Squad::Squad():trooper(0)
 
 }
 
-Squad& Squad::operator=(Squad &a)
+Squad& Squad::operator=(const Squad &a)
 {
 	if (!trooper)
 		trooper = new List();
@@ -45,7 +45,8 @@ Squad::~Squad()
 	delete trooper;
 }
 
-Squad::Squad(Squad &a)
+Squad::Squad(const Squad &a)
 {
+	trooper = 0;
 	*this = a;
 }

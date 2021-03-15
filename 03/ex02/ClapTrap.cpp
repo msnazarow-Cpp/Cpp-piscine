@@ -7,7 +7,7 @@ ClapTrap::ClapTrap(std::string name):
 	maxenegrypoints(75), level(1), melee(25), ranged(35), armor(10) {
 	std::cout << "CL4P-TP " << name << " is Alive!\n";}
 
-ClapTrap::ClapTrap(ClapTrap &a)
+ClapTrap::ClapTrap(const ClapTrap &a)
 {
 	*this = a;
 }
@@ -17,10 +17,10 @@ ClapTrap::~ClapTrap(){
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &a)
 {
-	this->hitpoints = a.hitpoints;
-	this->maxenegrypoints = a.maxhitpoints;
-	this->energypoints = a.energypoints;
-	this->level = a.level;
+	hitpoints = a.hitpoints;
+	maxenegrypoints = a.maxhitpoints;
+	energypoints = a.energypoints;
+	level = a.level;
 	name = a.name;
 	melee = a.melee;
 	ranged = a.ranged;

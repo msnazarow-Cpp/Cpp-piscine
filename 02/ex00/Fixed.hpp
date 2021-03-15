@@ -3,13 +3,14 @@
 class Fixed
 {
 private:
-	int number;
-	static const int bits = 8;
+	int _number;
+	static const int _bits = 8;
 public:
 	Fixed(int n = 0);
-	Fixed(Fixed &);
+	Fixed(const Fixed &);
 	Fixed & operator = (const Fixed &a);
 	~Fixed();
 	int getRawBits( void ) const;
+	static int	getOffset(void);
 	void setRawBits( int const raw );
 };

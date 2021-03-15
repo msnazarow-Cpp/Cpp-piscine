@@ -1,11 +1,22 @@
 #include "AMateria.hpp"
 
-void AMateria::use(ICharacter& target)
+void AMateria::use(ICharacter& __attribute__((unused))target)
 {
 	_xp += 10;
 }
 
-AMateria::AMateria(std::string const & type):_xp(10)
+AMateria& AMateria::operator=(const AMateria &a)
+{
+	_xp=a._xp;
+	return (*this);
+}
+
+AMateria::AMateria(const AMateria &a)
+{
+	*this = a;
+}
+
+AMateria::AMateria(std::string const & type):_xp(10),_type(type)
 {
 
 }

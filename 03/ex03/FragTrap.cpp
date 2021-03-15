@@ -15,9 +15,15 @@ FragTrap::FragTrap(std::string name):ClapTrap(name) {
 	this->setArmor(5);
 	std::cout << "FR4G-TP " << name << " is Alive!\n";}
 
-FragTrap::FragTrap(FragTrap &a):ClapTrap(a)
+FragTrap::FragTrap(const FragTrap &a):ClapTrap(a)
 {
 	std::cout << "FR4G-TP " << getName() << " is Alive!\n";
+}
+
+FragTrap& FragTrap::operator=(const FragTrap &a)
+{
+	ClapTrap::operator=(a);
+	return (*this);
 }
 
 FragTrap::~FragTrap(){

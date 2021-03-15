@@ -9,10 +9,10 @@ private:
 	std::string title;
 public:
 	Sorcerer(std::string name, std::string title);
-	Sorcerer(Sorcerer &);
+	Sorcerer(const Sorcerer &);
 	~Sorcerer();
 
-	Sorcerer & operator = (Sorcerer &a);
+	Sorcerer & operator = (const Sorcerer &a);
 
 	std::string getName() const;
 	void setName(const std::string &value);

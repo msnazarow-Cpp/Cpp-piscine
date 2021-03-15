@@ -9,6 +9,7 @@ private:
 public:
 	void ninjaShoebox(SuperTrap &);
 	SuperTrap(std::string name);
-	SuperTrap(SuperTrap &);
+	SuperTrap(const SuperTrap &);
+	SuperTrap &operator=(const SuperTrap &a);
 	~SuperTrap();
 };

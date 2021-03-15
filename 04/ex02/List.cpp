@@ -9,14 +9,14 @@ List::List(myclass	*content)
 	next = NULL;
 }
 
-List::List(List &list)
+List::List(const List &list)
 {
 	*this = list;
 }
 
-List &List::operator=(List &list) {
+List &List::operator=(const List &list) {
 
-	List *pointer = &list;
+	List *pointer = (List*)&list;
 	List *my = this;
 	content = list.content->clone();
 	while (pointer->next)

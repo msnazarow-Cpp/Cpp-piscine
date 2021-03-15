@@ -10,11 +10,11 @@ private:
 
 public:
 	AWeapon(std::string const &name, int apcost, int damage);
-	AWeapon(AWeapon &);
+	AWeapon(const AWeapon &);
 	virtual ~AWeapon();
 	std::string getName() const;
 	int getAPCost() const;
 	int getDamage() const;
 	virtual void attack() const = 0;
-	AWeapon &operator=(AWeapon &);
+	AWeapon &operator=(const AWeapon &);
 };

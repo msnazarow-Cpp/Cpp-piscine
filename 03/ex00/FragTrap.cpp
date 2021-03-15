@@ -7,7 +7,7 @@ FragTrap::FragTrap(std::string name):
 	maxenegrypoints(100), level(1), melee(30), ranged(20), armor(5) {
 	std::cout << "FR4G-TP " << name << " is Alive!\n";}
 
-FragTrap::FragTrap(FragTrap &a)
+FragTrap::FragTrap(const FragTrap &a)
 {
 	*this = a;
 }
@@ -17,10 +17,10 @@ FragTrap::~FragTrap(){
 
 FragTrap &FragTrap::operator=(const FragTrap &a)
 {
-	this->hitpoints = a.hitpoints;
-	this->maxenegrypoints = a.maxhitpoints;
-	this->energypoints = a.energypoints;
-	this->level = a.level;
+	hitpoints = a.hitpoints;
+	maxenegrypoints = a.maxhitpoints;
+	energypoints = a.energypoints;
+	level = a.level;
 	name = a.name;
 	melee = a.melee;
 	ranged = a.ranged;

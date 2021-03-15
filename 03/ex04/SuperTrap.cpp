@@ -15,9 +15,15 @@ SuperTrap::SuperTrap(std::string name):ClapTrap(name),FragTrap(name),NinjaTrap(n
 	std::cout << "SUPR-TP " << name << " is Alive!\n";
 }
 
-SuperTrap::SuperTrap(SuperTrap &a):ClapTrap(a),FragTrap(a),NinjaTrap(a)
+SuperTrap::SuperTrap(const SuperTrap &a):ClapTrap(a),FragTrap(a),NinjaTrap(a)
 {
 	std::cout << "SUPR-TP " << getName () << " is Alive!\n";
+}
+
+SuperTrap &SuperTrap::operator=(const SuperTrap &a)
+{
+	ClapTrap::operator=(a);
+	return (*this);
 }
 
 SuperTrap::~SuperTrap()

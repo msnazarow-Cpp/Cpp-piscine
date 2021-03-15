@@ -7,7 +7,7 @@ FragTrap::FragTrap(std::string name):
 	maxenegrypoints(100), level(1), melee(30), ranged(20), armor(5) {
 	std::cout << "FR4G-TP " << name << " is Alive!\n";}
 
-FragTrap::FragTrap(FragTrap &a)
+FragTrap::FragTrap(const FragTrap &a)
 {
 	*this = a;
 }

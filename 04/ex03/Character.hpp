@@ -6,10 +6,12 @@
 class Character: public ICharacter
 {
 private:
-	AMateria *_mat;
+	AMateria *_mat[4];
 	std::string _name;
 public:
 	Character(std::string name);
+	Character(const Character &a);
+	Character &operator=(const Character &a);
 	~Character();
 	std::string const & getName() const;
 	void equip(AMateria* m);

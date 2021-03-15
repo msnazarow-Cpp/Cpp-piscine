@@ -12,7 +12,8 @@ private:
 public:
 	NinjaTrap(std::string name);
 	~NinjaTrap();
-	NinjaTrap(NinjaTrap &);
+	NinjaTrap(const NinjaTrap &);
+	NinjaTrap &operator=(const NinjaTrap &);
 	void ninjaShoebox(ClapTrap &);
 	void ninjaShoebox(ScavTrap &);
 	void ninjaShoebox(FragTrap &);

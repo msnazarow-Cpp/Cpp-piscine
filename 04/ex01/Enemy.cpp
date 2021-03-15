@@ -5,6 +5,18 @@ Enemy::Enemy(int hp, std::string const & type):hp(hp),type(type)
 
 }
 
+Enemy::Enemy(const Enemy &a)
+{
+	*this = a;
+}
+
+Enemy& Enemy::operator=(const Enemy &a)
+{
+	hp = a.hp;
+	type = a.type;
+	return (*this);
+}
+
 Enemy::~Enemy()
 {
 

@@ -6,9 +6,10 @@ Sorcerer::Sorcerer(std::string name, std::string title):name(name),title(title)
 	std::cout << name << ", " << title << ", is born!\n";
 }
 
-Sorcerer::Sorcerer(Sorcerer &a)
+Sorcerer::Sorcerer(const Sorcerer &a)
 {
 	*this = a;
+	std::cout << name << ", " << title << ", is born!\n";
 }
 
 std::string Sorcerer::getName() const {
@@ -19,7 +20,7 @@ void Sorcerer::setName(const std::string &value) {
 	name = value;
 }
 
-Sorcerer &Sorcerer::operator = (Sorcerer &a)
+Sorcerer &Sorcerer::operator = (const Sorcerer &a)
 {
 	name = a.name;
 	title = a.title;

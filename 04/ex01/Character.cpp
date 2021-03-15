@@ -6,6 +6,19 @@ Character::Character(std::string const & name):name(name),ap(40),weapon(0)
 {
 }
 
+Character::Character(const Character &a)
+{
+	*this = a;
+}
+
+Character& Character::operator=(const Character &a)
+{
+	name=a.name;
+	ap = a.ap;
+	weapon = a.weapon;
+	return (*this);
+}
+
 Character::~Character()
 {
 }

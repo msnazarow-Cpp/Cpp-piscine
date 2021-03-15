@@ -1,4 +1,5 @@
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 #include <iostream>
 #include <cstdlib>
 
@@ -7,7 +8,7 @@ ScavTrap::ScavTrap(std::string name):
 	maxenegrypoints(50), level(1), melee(20), ranged(15), armor(3) {
 	std::cout << "SC4V-TP " << name << " is Alive!\n";}
 
-ScavTrap::ScavTrap(ScavTrap &a)
+ScavTrap::ScavTrap(const ScavTrap &a)
 {
 	*this = a;
 }
@@ -17,10 +18,10 @@ ScavTrap::~ScavTrap(){
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &a)
 {
-	this->hitpoints = a.hitpoints;
-	this->maxenegrypoints = a.maxhitpoints;
-	this->energypoints = a.energypoints;
-	this->level = a.level;
+	hitpoints = a.hitpoints;
+	maxenegrypoints = a.maxhitpoints;
+	energypoints = a.energypoints;
+	level = a.level;
 	name = a.name;
 	melee = a.melee;
 	ranged = a.ranged;
