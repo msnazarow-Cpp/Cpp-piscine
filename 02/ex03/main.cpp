@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Fixed.hpp"
 #include <sstream>
+#include <cstdlib>
 
 Fixed eval_expr(std::stringstream &ist, std::string &tmp);
 Fixed arg(std::stringstream &ist, std::string &tmp);
