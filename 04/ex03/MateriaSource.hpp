@@ -2,7 +2,7 @@
 class MateriaSource: public IMateriaSource
 {
 private:
-	AMateria *_learned;
+	AMateria *_learned[4];
 public:
 	MateriaSource();
 	MateriaSource(const MateriaSource &);

@@ -11,6 +11,7 @@ public:
 	Fixed(const int);
 	Fixed(const float);
 	Fixed(const Fixed &);
+	Fixed(std::string);
 	~Fixed();
 
 	int	toInt(void) const;

@@ -21,6 +21,11 @@ AMateria::AMateria(std::string const & type):_xp(10),_type(type)
 
 }
 
+AMateria::~AMateria()
+{
+	
+}
+
 std::string const & AMateria::getType() const {
 	return _type;
 }

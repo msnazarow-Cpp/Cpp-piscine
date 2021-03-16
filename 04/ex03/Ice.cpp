@@ -8,15 +8,20 @@ Ice::Ice()
 
 }
 
-Ice::Ice(const Ice &a):AMateria(a)
+Ice::Ice(const Ice &a):AMateria("ice")
 {
-
+	*this = a;
 }
 
 Ice& Ice::operator=(const Ice &a)
 {
 	AMateria::operator=(a);
 	return (*this);
+}
+
+Ice::~Ice()
+{
+
 }
 
 void Ice::use(ICharacter& target) {

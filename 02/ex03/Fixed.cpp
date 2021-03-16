@@ -1,5 +1,6 @@
 #include "Fixed.hpp"
 #include <iostream>
+#include <cmath>
 
 Fixed::Fixed()
 {
@@ -23,6 +24,28 @@ Fixed::Fixed(const Fixed &b)
 {
 	//std::cout << "Copy constructor called\n";
 	this->_number = b.getRawBits();
+}
+
+Fixed::Fixed(std::string s)
+{
+	*this = 0;
+	int negative = 1;
+	Fixed out2 = 0;
+	int l = 0;
+	int i = 0;
+	if (s[i] == '-' || s[i] == '+')
+	{
+		if (s[i] == '-')
+			negative = -1;
+		i++;
+	}
+	while (isdigit(s[i]))
+		*this = *this * 10 + s[i++] - 48;
+	if (s[i++] == '.' && ++l)
+		while (isdigit(s[i]))
+			out2 = out2 * 10 + s[i++] - 48;
+	*this = *this + out2/ powf(10,l);
+	*this = *this * negative;
 }
 Fixed::~Fixed()
 {
