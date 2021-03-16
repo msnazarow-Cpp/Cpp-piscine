@@ -1,5 +1,4 @@
-#ifndef __NINJATRAP_H__
-#define __NINJATRAP_H__
+#pragma once
 #include <string>
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
@@ -19,4 +18,3 @@ public:
 	void ninjaShoebox(FragTrap &);
 	void ninjaShoebox(NinjaTrap &);
 };
-#endif // __NINJATRAP_H__

@@ -1,3 +1,4 @@
+#pragma once
 #include "Enemy.hpp"
 
 class SuperMutant : public Enemy

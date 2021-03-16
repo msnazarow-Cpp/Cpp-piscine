@@ -1,6 +1,3 @@
-#ifndef __ICHARACTER_H__
-#define __ICHARACTER_H__
-
 #pragma once
 
 #include <string>
@@ -15,5 +12,3 @@ class ICharacter
 	virtual void unequip(int idx) = 0;
 	virtual void use(int idx, ICharacter& target) = 0;
 };
-
-#endif // __ICHARACTER_H__

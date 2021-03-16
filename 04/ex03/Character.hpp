@@ -1,7 +1,7 @@
+#pragma once
 #include "ICharacter.hpp"
 #include "AMateria.hpp"
 #include <string>
-
 
 class Character: public ICharacter
 {

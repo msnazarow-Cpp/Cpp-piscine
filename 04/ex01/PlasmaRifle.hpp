@@ -1,3 +1,4 @@
+#pragma once
 #include "AWeapon.hpp"
 
 class PlasmaRifle : public AWeapon

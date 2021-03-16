@@ -1,5 +1,4 @@
-#ifndef __AMATERIA_H__
-#define __AMATERIA_H__
+#pragma once
 #include <string>
 #include "ICharacter.hpp"
 class ICharacter;
@@ -21,5 +20,3 @@ class AMateria
 		AMateria &operator=(const AMateria &);
 		AMateria(const AMateria &a);
 };
-
-#endif // __AMATERIA_H__
