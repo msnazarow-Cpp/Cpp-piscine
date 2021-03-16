@@ -148,7 +148,7 @@ Fixed operator / (const Fixed &a, const Fixed &b)
 {
 	Fixed result;
 
-	result.setRawBits((a.getRawBits() << Fixed::getOffset()) / b.getRawBits());
+	result.setRawBits((a.getRawBits() / b.getRawBits())<< Fixed::getOffset());
 	return (result);
 }
 
