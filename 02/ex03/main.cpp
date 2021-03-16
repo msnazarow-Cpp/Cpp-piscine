@@ -12,7 +12,15 @@ Fixed calc(Fixed a, Fixed b, std::string c)
 	else if (c == "-")
 		return (a - b);
 	else if (c == "/")
-		return (a / b);
+	{
+		if (b == 0)
+		{
+			std::cout << " Tы шо, пёс ?\n";
+			exit (1);
+		}
+		else
+			return (a / b);
+	}
 	else if (c == "*")
 		return (a * b);
 	return (0);
