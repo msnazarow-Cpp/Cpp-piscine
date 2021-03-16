@@ -85,7 +85,7 @@ Fixed eval_expr(std::stringstream &ist, std::string &tmp)
 			arg2 = arg(ist, tmp);
 		arg1 = calc(arg1, arg2, tmp2);
 		if (tmp == "" || !(tmp == "+" || tmp == "-" || tmp == "/" || tmp == "*"))
-			if (!(ist >> tmp))
+			if (tmp != ")" && !(ist >> tmp))
 				break;
 	}
 	return (arg1);
