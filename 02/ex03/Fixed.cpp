@@ -52,6 +52,11 @@ Fixed::~Fixed()
 	//std::cout << "Destructor called\n";
 }
 
+int Fixed::getOffset(void)
+{
+	return Fixed::_bits;
+}
+
 int Fixed::getRawBits() const
 {
 	//std::cout << "getRawBits member function called\n";
@@ -135,7 +140,7 @@ Fixed operator * (const Fixed &a, const Fixed &b)
 {
 	Fixed result;
 
-	result.setRawBits((a.getRawBits() * b.getRawBits()) >> 8);
+	result.setRawBits((a.getRawBits() >> Fixed::getOffset()) * b.getRawBits());
 	return (result);
 }
 
@@ -143,7 +148,7 @@ Fixed operator / (const Fixed &a, const Fixed &b)
 {
 	Fixed result;
 
-	result.setRawBits((a.getRawBits() << 8) / b.getRawBits());
+	result.setRawBits((a.getRawBits() << Fixed::getOffset()) / b.getRawBits());
 	return (result);
 }
 

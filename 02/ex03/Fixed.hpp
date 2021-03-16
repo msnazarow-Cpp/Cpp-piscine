@@ -14,6 +14,7 @@ public:
 	Fixed(std::string);
 	~Fixed();
 
+	static int getOffset(void);
 	int	toInt(void) const;
 	float toFloat(void) const;
 	int getRawBits( void ) const;
