@@ -3,8 +3,8 @@
 #include <sstream>
 #include <cstdlib>
 
-Fixed eval_expr(std::stringstream &ist, std::string &tmp);
-Fixed arg(std::stringstream &ist, std::string &tmp);
+Fixed eval_expr(std::istringstream &ist, std::string &tmp);
+Fixed arg(std::istringstream &ist, std::string &tmp);
 
 Fixed calc(Fixed a, Fixed b, std::string c)
 {
@@ -27,16 +27,24 @@ Fixed calc(Fixed a, Fixed b, std::string c)
 	return (0);
 }
 
-Fixed expr2(std::stringstream &ist, std::string &tmp)
+Fixed expr2(std::istringstream &ist, std::string &tmp)
 {
 	std::string tmp2;
-	Fixed arg1 = arg(ist, tmp);
 	ist >> tmp;
+	Fixed arg1 = arg(ist, tmp);
+	while (!(tmp == "+" || tmp == "-" || tmp == "*" || tmp == "/"))
+	{
+		if (tmp == ")")
+			{return arg1;}
+		else if (!(ist >> tmp))
+			return arg1;
+	}
 	if (tmp == "*" || tmp == "/")
 	{
-		tmp2 = tmp;
 		while (tmp == "*" || tmp == "/" )
 		{
+			tmp2 = tmp;
+			ist >> tmp;
 			Fixed arg2 = arg(ist, tmp);
 			arg1 = calc(arg1, arg2, tmp2);
 		}
@@ -45,11 +53,10 @@ Fixed expr2(std::stringstream &ist, std::string &tmp)
 }
 
 
-Fixed arg(std::stringstream &ist, std::string &tmp)
+Fixed arg(std::istringstream &ist, std::string &tmp)
 {
 	int negative = 1;
-	Fixed out = 0;
-	ist >> tmp;
+	Fixed out;
 	if (tmp == "+" || tmp == "-")
 	{
 		if (tmp == "-")
@@ -58,45 +65,66 @@ Fixed arg(std::stringstream &ist, std::string &tmp)
 	}
 	if (tmp == "(")
 	{
-		out = eval_expr(ist, tmp);
 		ist >> tmp;
-		if (tmp != ")")
-			ist << tmp;
+		out = eval_expr(ist, tmp);
+		if (tmp == ")")
+			ist >> tmp;
 		return (negative * out);
 	}
-
-	return (negative * Fixed(tmp));
+	out = negative * Fixed(tmp);
+	ist >> tmp;
+	return (out);
 }
 
-Fixed eval_expr(std::stringstream &ist, std::string &tmp)
+Fixed eval_expr(std::istringstream &ist, std::string &tmp)
 {
 	std::string tmp2;
 	Fixed arg1 = arg(ist, tmp);
 	Fixed arg2;
-	if (tmp == "" || !(tmp == "+" || tmp == "-" || tmp == "/" || tmp == "*"))
-		if (!(ist >> tmp))
+	while (!(tmp == "+" || tmp == "-" || tmp == "*" || tmp == "/"))
+	{
+		if (tmp == ")")
+			{return arg1;}
+		else if (!(ist >> tmp))
 			return arg1;
+	}
 	while (tmp != ")")
 	{
 		tmp2 = tmp;
 		if (tmp == "+" || tmp == "-")
+		{
+			//ist >> tmp;
 			arg2 = expr2(ist, tmp);
-		else
+		}
+		else if (tmp == "*" || tmp == "/")
+		{
+			ist >> tmp;
 			arg2 = arg(ist, tmp);
+		}
 		arg1 = calc(arg1, arg2, tmp2);
-		if (tmp == "" || !(tmp == "+" || tmp == "-" || tmp == "/" || tmp == "*"))
-			if (tmp != ")" && !(ist >> tmp))
-				break;
+		//if (tmp == ")")
+		//{
+		//	break;
+		//}
+		while (!(tmp == "+" || tmp == "-" || tmp == "*" || tmp == "/"))
+		{
+			if (tmp == ")")
+				{return arg1;}
+			else if (!(ist >> tmp))
+				return arg1;
+		}
 	}
+//	ist >> tmp;
 	return (arg1);
 }
 
 int main(int argc, char **argv) {
 
-	if (argc != 2)
+	if (argc == 1)
 		return (0);
-	std::stringstream ist(argv[1]);
-	std::string tmp = "";
+	std::istringstream ist(argv[1]);
+	std::string tmp;
+	ist >> tmp;
 	std::cout<< eval_expr(ist, tmp) << std::endl;
 	return 0;
 }

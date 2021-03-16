@@ -41,8 +41,8 @@ Fixed::Fixed(std::string s)
 	}
 	while (isdigit(s[i]))
 		*this = *this * 10 + s[i++] - 48;
-	if (s[i++] == '.' && ++l)
-		while (isdigit(s[i]))
+	if (s[i++] == '.')
+		while (isdigit(s[i]) && ++l)
 			out2 = out2 * 10 + s[i++] - 48;
 	*this = *this + out2/ powf(10,l);
 	*this = *this * negative;
