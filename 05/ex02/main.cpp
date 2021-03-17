@@ -35,9 +35,10 @@ int main(void)
 	}
 
 	ShrubberyCreationForm form("Diloma");
-	Bureaucrat Loh("Loh", 100);
+	Bureaucrat Loh("Loh", 150);
 	Loh.signForm(form);
 	Bureaucrat Crutoy("Krutoy", 1);
+	form.execute(Crutoy);
 	Crutoy.signForm(form);
 	form.execute(Crutoy);
 

@@ -5,7 +5,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
 {
 	std::ofstream file;
 	file.open(target.c_str());
-	file << "\\\n      /\\\n     /\\*\\\n    /\\O\\*\\\n   /*/\\/\\/\\\n  /\\O\\/\\*\\/\\\n /\\*\\/\\*\\/\\/\\\n/\\O\\/\\/*/\\/O/\\\n      ||\n      ||\n      ||      " << std::endl;
+	file << "      /\\\n     /\\*\\\n    /\\O\\*\\\n   /*/\\/\\/\\\n  /\\O\\/\\*\\/\\\n /\\*\\/\\*\\/\\/\\\n/\\O\\/\\/*/\\/O/\\\n      ||\n      ||\n      ||      " << std::endl;
 	  file.close();
 }
 
