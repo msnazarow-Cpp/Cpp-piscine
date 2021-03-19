@@ -5,6 +5,7 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target)
 	: Form("PresidentialPardonForm", 25, 5)
 {
 	setTarget(target);
+
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &form):Form(form)
@@ -26,4 +27,8 @@ PresidentialPardonForm::~PresidentialPardonForm()
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const {
 	Form::execute(executor);
 	std::cout << target() << " has been pardoned by Zafod Beeblebrox" << std::endl;
+}
+
+PresidentialPardonForm *PresidentialPardonForm::create(std::string target) {
+	return (new PresidentialPardonForm(target));
 }

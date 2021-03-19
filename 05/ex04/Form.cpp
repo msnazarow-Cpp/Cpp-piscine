@@ -52,6 +52,8 @@ std::string Form::name() const {
 }
 
 void Form::beSigned(const Bureaucrat & crat) {
+	if (_sign)
+		throw AlreadySignedexecption();
 	if (crat.getGrade() <= _gradeToSign)
 		_sign = 1;
 	else
@@ -91,4 +93,8 @@ std::string Form::target() const {
 
 void Form::setTarget(const std::string &value) {
 	_target = value;
+}
+
+char const *Form::AlreadySignedexecption::what() const throw() {
+	return ("!Exception!: Form is already signed!");
 }

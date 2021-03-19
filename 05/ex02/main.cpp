@@ -2,10 +2,11 @@
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include <iostream>
+#include <cstdlib>
 
 int main(void)
 {
-
+	srand(time(NULL));
 	try
 	{
 		PresidentialPardonForm form("Diloma");
@@ -38,9 +39,17 @@ int main(void)
 	Bureaucrat Loh("Loh", 150);
 	Loh.signForm(form);
 	Bureaucrat Crutoy("Krutoy", 1);
-	form.execute(Crutoy);
+	try
+	{
+		form.execute(Crutoy);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	Crutoy.executeForm(form);
 	Crutoy.signForm(form);
 	form.execute(Crutoy);
-
+	Crutoy.executeForm(form);
 	return 0;
 }

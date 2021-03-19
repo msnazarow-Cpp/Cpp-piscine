@@ -32,6 +32,10 @@ public:
 	{
 		virtual char const *what() const throw();
 	};
+	class AlreadySignedexecption : public std::exception
+	{
+		virtual char const *what() const throw();
+	};
 	class GradeTooLowException : public std::exception
 	{
 		virtual char const *what() const throw();

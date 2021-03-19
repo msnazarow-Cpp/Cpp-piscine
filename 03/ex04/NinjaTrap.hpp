@@ -10,7 +10,7 @@ private:
 	/* data */
 public:
 	NinjaTrap(std::string name);
-	~NinjaTrap();
+	virtual ~NinjaTrap();
 	NinjaTrap(const NinjaTrap &);
 	NinjaTrap &operator=(const NinjaTrap &);
 	void ninjaShoebox(ClapTrap &);

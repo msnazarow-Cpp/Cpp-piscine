@@ -72,23 +72,3 @@ int Form::gradeToSign() const {
 int Form::gradeToExec() const {
 	return _gradeToExec;
 }
-
-void Form::execute(Bureaucrat const & executor) const
-{
-	if(!sign())
-		throw UnsidnedException();
-	else if (executor.getGrade() > gradeToExec())
-		throw GradeTooLowException();
-}
-
-char const *Form::UnsidnedException::what() const throw() {
-	return ("!Exception!: Form is not signed yet");
-}
-
-std::string Form::target() const {
-	return _target;
-}
-
-void Form::setTarget(const std::string &value) {
-	_target = value;
-}

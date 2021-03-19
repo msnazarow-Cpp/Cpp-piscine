@@ -27,7 +27,6 @@ public:
 	void decGrade();
 	std::string getName() const;
 	void	signForm(Form &form) const;
-	void	executeForm(Form const & form);
 };
 
 std::ostream &operator<<(std::ostream &stream, Bureaucrat &);

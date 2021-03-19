@@ -30,7 +30,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap &a)
 
 void	ScavTrap::challengeNewcomer()
 {
-	std::string challenges[] = {"Get some health", "Get recover form death", "Hit yourself!", "Kick yourself!"};
+	std::string challenges[] = {"Get some health", "Get recover from death", "Hit yourself!", "Kick yourself!"};
 	int i = std::rand() % 4;
 	unsigned int amount = std::rand() % 25 + 5;
 
