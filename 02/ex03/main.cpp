@@ -6,7 +6,7 @@
 Fixed eval_expr(std::istringstream &ist, std::string &tmp);
 Fixed arg(std::istringstream &ist, std::string &tmp);
 
-Fixed calc(Fixed a, Fixed b, std::string c)
+Fixed calc(Fixed const & a, Fixed const & b, std::string const & c)
 {
 	if (c == "+")
 		return (a + b);

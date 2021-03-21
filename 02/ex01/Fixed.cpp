@@ -1,5 +1,8 @@
 #include "Fixed.hpp"
 #include <iostream>
+#include <cmath>
+#include <climits>
+#include <stdlib.h>
 
 Fixed::Fixed()
 {
@@ -10,19 +13,23 @@ Fixed::Fixed()
 Fixed::Fixed(const int n)
 {
 	std::cout << "Int constructor called\n";
+	if (labs(static_cast<long>(n) << _bits ) > INT_MAX)
+		throw std::overflow_error("OverflowException: Max abs value is 8388607");
 	_number = n << _bits;
 }
 
 Fixed::Fixed(const float n)
 {
 	std::cout << "Float constructor called\n";
-	_number = n * (1 << _bits);
+	if (static_cast<long>(roundf(n * (1 << _bits))) > INT_MAX)
+		throw std::overflow_error("OverflowException: Max abs value is 8388607");
+	_number = roundf(n * (1 << _bits));
 }
 
 Fixed::Fixed(const Fixed &b)
 {
 	std::cout << "Copy constructor called\n";
-	this->_number = b.getRawBits();
+	*this = b;
 }
 Fixed::~Fixed()
 {
@@ -55,7 +62,7 @@ int	Fixed::getOffset(void) {
 }
 
 float Fixed::toFloat(void) const{
-	return ((float)_number / (float)(1 << _bits));
+	return (static_cast<float>(_number) / static_cast<float>(1 << _bits));
 }
 
 std::ostream &operator << (std::ostream &stream, const Fixed &fixed)

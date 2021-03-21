@@ -1,15 +1,14 @@
 #include "Fixed.hpp"
 #include <iostream>
 
-Fixed::Fixed(int n)
+Fixed::Fixed():_number(0)
 {
 	std::cout << "Default constructor called\n";
-	_number = n;
 }
 Fixed::Fixed(const Fixed &b)
 {
 	std::cout << "Copy constructor called\n";
-	this->_number = b.getRawBits();
+	*this = b;
 }
 Fixed::~Fixed()
 {
