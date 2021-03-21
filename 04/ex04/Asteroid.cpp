@@ -16,14 +16,9 @@ std::string Asteroid::getName() const
 	return("Asteroid");
 }
 
-Asteroid::~Asteroid()
-{
+Asteroid::~Asteroid(){}
 
-}
-
-Asteroid::Asteroid()
-{
-}
+Asteroid::Asteroid(){}
 
 Asteroid::Asteroid(const Asteroid &asteroid)
 {

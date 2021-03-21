@@ -4,9 +4,9 @@
 class RadScorpion : public Enemy
 {
 private:
-	/* data */
+
 public:
-	RadScorpion(/* args */);
+	RadScorpion();
 	RadScorpion(const RadScorpion &);
 	RadScorpion &operator=(const RadScorpion &);
 	~RadScorpion();

@@ -2,7 +2,7 @@
 #include "Enemy.hpp"
 #include <iostream>
 
-RadScorpion::RadScorpion(/* args */):Enemy(80, "RadScorpion")
+RadScorpion::RadScorpion():Enemy(80, "RadScorpion")
 {
 	std::cout << "* click click click *\n";
 }

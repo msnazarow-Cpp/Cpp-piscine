@@ -7,15 +7,9 @@ void StripMiner::mine(IAsteroid* miner)
 	std::cout << "* strip mining... got "<< miner->beMined(this) <<"! *" << std::endl;
 }
 
-StripMiner::~StripMiner()
-{
+StripMiner::~StripMiner(){}
 
-}
-
-StripMiner::StripMiner(/* args */)
-{
-
-}
+StripMiner::StripMiner(){}
 
 StripMiner::StripMiner(const StripMiner & miner)
 {

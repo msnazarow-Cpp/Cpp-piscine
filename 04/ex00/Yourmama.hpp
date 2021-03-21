@@ -3,12 +3,10 @@
 
 class Yourmama : public Victim
 {
-private:
-	/* data */
-public:
-	Yourmama(std::string name);
-	Yourmama(const Yourmama &a);
-	Yourmama &operator=(const Yourmama &a);
-	void getPolymorphed() const;
-	~Yourmama();
+	public:
+		Yourmama(std::string const & name);
+		Yourmama(const Yourmama &a);
+		Yourmama &operator=(const Yourmama &a);
+		void getPolymorphed() const;
+		~Yourmama();
 };

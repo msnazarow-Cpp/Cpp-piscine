@@ -9,7 +9,7 @@ private:
 	int apcost;
 
 public:
-	AWeapon(std::string const &name, int apcost, int damage);
+	AWeapon(std::string const & name, int apcost, int damage);
 	AWeapon(const AWeapon &);
 	virtual ~AWeapon();
 	std::string getName() const;

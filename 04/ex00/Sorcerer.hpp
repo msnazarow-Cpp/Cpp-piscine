@@ -8,7 +8,7 @@ private:
 	std::string name;
 	std::string title;
 public:
-	Sorcerer(std::string name, std::string title);
+	Sorcerer(std::string const & name, std::string const & title);
 	Sorcerer(const Sorcerer &);
 	~Sorcerer();
 

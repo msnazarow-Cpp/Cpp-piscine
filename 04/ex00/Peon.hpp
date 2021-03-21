@@ -3,12 +3,10 @@
 
 class Peon : public Victim
 {
-private:
-	/* data */
-public:
-	Peon(std::string name);
-	Peon(const Peon &);
-	Peon &operator=(const Peon &);
-	void getPolymorphed() const;
-	~Peon();
+	public:
+		Peon(std::string const & name);
+		Peon(const Peon &);
+		Peon &operator=(const Peon &);
+		void getPolymorphed() const;
+		~Peon();
 };

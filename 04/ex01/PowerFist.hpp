@@ -4,7 +4,7 @@
 class PowerFist : public AWeapon
 {
 private:
-	/* data */
+
 public:
 	PowerFist();
 	PowerFist(const PowerFist &a);

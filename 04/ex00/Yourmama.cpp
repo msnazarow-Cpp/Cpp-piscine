@@ -1,7 +1,7 @@
 #include "Yourmama.hpp"
 #include <iostream>
 
-Yourmama::Yourmama(std::string name):Victim(name)
+Yourmama::Yourmama(std::string const & name):Victim(name)
 {
 	std::cout << "Have you eaten?\n";
 }

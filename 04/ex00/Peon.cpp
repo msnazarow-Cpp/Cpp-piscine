@@ -1,7 +1,7 @@
 #include "Peon.hpp"
 #include <iostream>
 
-Peon::Peon(std::string name):Victim(name)
+Peon::Peon(std::string const & name):Victim(name)
 {
 	std::cout << "Zog zog.\n";
 }

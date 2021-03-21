@@ -10,14 +10,14 @@ class Character
 		int ap;
 		AWeapon *weapon;
 	public:
-	Character(std::string const & name);
-	Character(const Character &);
-	Character &operator=(const Character &);
-	~Character();
-	void recoverAP();
-	void equip(AWeapon*);
-	void attack(Enemy*);
-	std::string getName() const;
+		Character(std::string const & name);
+		Character(const Character &);
+		Character &operator=(const Character &);
+		~Character();
+		void recoverAP();
+		void equip(AWeapon*);
+		void attack(Enemy*);
+		std::string getName() const;
 
 	int getAp() const;
 

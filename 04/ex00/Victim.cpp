@@ -1,7 +1,7 @@
 #include "Victim.hpp"
 #include <iostream>
 
-Victim::Victim(std::string name):name(name)
+Victim::Victim(std::string const & name):name(name)
 {
 	std::cout <<"Some random victim called "<< name <<" just appeared!\n";
 }
