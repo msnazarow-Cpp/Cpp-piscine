@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cstdlib>
 
-FragTrap::FragTrap(std::string name):
+FragTrap::FragTrap(std::string const & name):
 	name(name),hitpoints(100), maxhitpoints(100), energypoints(100),
 	maxenegrypoints(100), level(1), melee(30), ranged(20), armor(5) {
 	std::cout << "FR4G-TP " << name << " is Alive!\n";}
@@ -29,16 +29,19 @@ FragTrap &FragTrap::operator=(const FragTrap &a)
 }
 
 int FragTrap::meleeAttack(std::string const &target){
-	if(hitpoints > 0){ std::cout << "FR4G-TP " << name << " attacks " << target << " at melee, causing "<< melee << " points of damage!\n";
-	return (melee);}
+	if(hitpoints > 0){
+		std::cout << "FR4G-TP " << name << " attacks " << target << " at melee, causing "<< melee << " points of damage!\n";
+		return (melee);
+	}
 	std::cout << "FR4G-TP " << name << " can't attack cause he is dead!\n";
 	return (0);
 }
 
 int FragTrap::rangedAttack(std::string const &target){
 	if (hitpoints > 0){
-	std::cout << "FR4G-TP " << name << " attacks " << target << " at range, causing "<< ranged << " points of damage!\n";
-	return (ranged);}
+		std::cout << "FR4G-TP " << name << " attacks " << target << " at range, causing "<< ranged << " points of damage!\n";
+		return (ranged);
+	}
 	std::cout << "FR4G-TP " << name << " can't attack cause he is dead!\n";
 	return (0);
 }

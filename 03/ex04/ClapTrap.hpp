@@ -16,7 +16,7 @@ private:
 	unsigned int armor;
 
 public:
-	ClapTrap(std::string name);
+	ClapTrap(std::string const &name);
 	virtual ~ClapTrap();
 	ClapTrap(const ClapTrap &);
 	int rangedAttack(std::string const &);

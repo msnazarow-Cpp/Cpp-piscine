@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cstdlib>
 
-NinjaTrap::NinjaTrap(std::string name):ClapTrap(name)
+NinjaTrap::NinjaTrap(std::string const & name):ClapTrap(name)
 {
 	this->setType("INAC-TP ");
 	this->setHitpoints(60);

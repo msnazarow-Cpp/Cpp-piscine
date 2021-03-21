@@ -2,17 +2,17 @@
 #include <iostream>
 #include <cstdlib>
 
-NinjaTrap::NinjaTrap(std::string name):ClapTrap(name)
+NinjaTrap::NinjaTrap(std::string const &name):ClapTrap(name)
 {
-	this->setType("INAC-TP ");
-	this->setHitpoints(60);
-	this->setMaxhitpoints(60);
-	this->setLevel(1);
-	this->setEnergypoints(120);
-	this->setMaxenegrypoints(120);
-	this->setMelee(60);
-	this->setRanged(5);
-	this->setArmor(0);
+	setType("INAC-TP ");
+	setHitpoints(60);
+	setMaxhitpoints(60);
+	setLevel(1);
+	setEnergypoints(120);
+	setMaxenegrypoints(120);
+	setMelee(60);
+	setRanged(5);
+	setArmor(0);
 	std::cout << "INAC-TP " << name << " is Alive!\n";
 }
 
@@ -34,12 +34,12 @@ NinjaTrap& NinjaTrap::operator=(const NinjaTrap &a)
 
 void NinjaTrap::ninjaShoebox(ClapTrap &a)
 {
-	a.takeDamage(this->meleeAttack(a.getName()));
+	a.takeDamage(meleeAttack(a.getName()));
 }
 
 void NinjaTrap::ninjaShoebox(ScavTrap &a)
 {
-	a.takeDamage(this->rangedAttack(a.getName()));
+	a.takeDamage(rangedAttack(a.getName()));
 }
 
 void NinjaTrap::ninjaShoebox(FragTrap &a)

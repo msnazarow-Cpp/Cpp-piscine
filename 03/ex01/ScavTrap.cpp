@@ -3,7 +3,7 @@
 #include <iostream>
 #include <cstdlib>
 
-ScavTrap::ScavTrap(std::string name):
+ScavTrap::ScavTrap(std::string const & name):
 	name(name),hitpoints(100), maxhitpoints(100), energypoints(50),
 	maxenegrypoints(50), level(1), melee(20), ranged(15), armor(3) {
 	std::cout << "SC4V-TP " << name << " is Alive!\n";}

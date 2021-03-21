@@ -2,16 +2,16 @@
 #include <iostream>
 #include <cstdlib>
 
-ScavTrap::ScavTrap(std::string name):ClapTrap(name){
-	this->setType("SC4V-TP ");
-	this->setHitpoints(100);
-	this->setMaxhitpoints(100);
-	this->setLevel(1);
-	this->setEnergypoints(50);
-	this->setMaxenegrypoints(50);
-	this->setMelee(20);
-	this->setRanged(15);
-	this->setArmor(3);
+ScavTrap::ScavTrap(std::string const &name):ClapTrap(name){
+	setType("SC4V-TP ");
+	setHitpoints(100);
+	setMaxhitpoints(100);
+	setLevel(1);
+	setEnergypoints(50);
+	setMaxenegrypoints(50);
+	setMelee(20);
+	setRanged(15);
+	setArmor(3);
 	std::cout << "SC4V-TP " << name << " is Alive!\n";}
 
 ScavTrap::ScavTrap(const ScavTrap &a):ClapTrap(a)
@@ -21,7 +21,7 @@ ScavTrap::ScavTrap(const ScavTrap &a):ClapTrap(a)
 
 ScavTrap& ScavTrap::operator=(const ScavTrap &a)
 {
-	this->ClapTrap::operator=(a);
+	ClapTrap::operator=(a);
 	return (*this);
 }
 
@@ -34,17 +34,18 @@ void	ScavTrap::challengeNewcomer()
 	int i = std::rand() % 4;
 	unsigned int amount = std::rand() % 25 + 5;
 
-	if (getHitpoints() > 0){	if (getEnergypoints() < 10){
-		std::cout << getType() << getName() << " can't challenge cause he is out of energy!\n"; return ;}
+	if (getHitpoints() > 0){
+		if (getEnergypoints() < 10){
+			std::cout << getType() << getName() << " can't challenge cause he is out of energy!\n"; return ;}
 		setEnergypoints(getEnergypoints() - 10);
 		std::cout << getType() << getName() << " challenges \"" << challenges[i] << "\" with " << amount << " amount!\n";
 		if (i < 2)
 			beRepaired(amount);
 		else
 			takeDamage(amount);
-	return ;}
-	if (i == 1)
-	{std::cout << getType() << getName() << " got " << challenges[i] << " challenge and now he is alive again!\n";
+		return ;}
+	if (i == 1){
+		std::cout << getType() << getName() << " got " << challenges[i] << " challenge and now he is alive again!\n";
 		setHitpoints(getHitpoints() + std::min(getMaxhitpoints(), amount));}
 	return ;
 }

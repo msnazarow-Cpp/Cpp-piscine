@@ -3,7 +3,7 @@
 #include <iostream>
 #include <cstdlib>
 
-FragTrap::FragTrap(std::string name):ClapTrap(name) {
+FragTrap::FragTrap(std::string const &name):ClapTrap(name) {
 	setType("FR4G-TP ");
 	setHitpoints(100);
 	setMaxhitpoints(100);
@@ -22,7 +22,7 @@ FragTrap::FragTrap(const FragTrap &a):ClapTrap(a)
 
 FragTrap& FragTrap::operator=(const FragTrap &a)
 {
-	this->ClapTrap::operator=(a);
+	ClapTrap::operator=(a);
 	return(*this);
 }
 
@@ -31,15 +31,16 @@ FragTrap::~FragTrap(){
 
 int	FragTrap::vaulthunter_dot_exe(std::string const & target)
 {
-	if (getHitpoints() > 0){	if (getEnergypoints() < 20)
-	{std::cout << getType() << getName() << " can't attack cause he is out of energy!\n"; return (0);}
-	std::string attacks[] = {"Omae wa mo shinderu", "Nani?", "Kisama", "Sugoy!", "Sasageo!", "Namae wa Yohan"};
-	int i = std::rand() % 6;
-	int damages[] = {30, 5, 15, 5, 10, 20};
-		setEnergypoints(getEnergypoints() - 20);
-		std::cout << getType() << getName() << " attacks " << target << " shouting: "
-		<< attacks[i] << " causing " << damages[i] << " points of damage!\n";
-	return (damages[i]);}
+	if (getHitpoints() > 0){
+		if (getEnergypoints() < 20)
+		{std::cout << getType() << getName() << " can't attack cause he is out of energy!\n"; return (0);}
+		std::string attacks[] = {"Omae wa mo shinderu", "Nani?", "Kisama", "Sugoy!", "Sasageo!", "Namae wa Yohan"};
+		int i = std::rand() % 6;
+		int damages[] = {30, 5, 15, 5, 10, 20};
+			setEnergypoints(getEnergypoints() - 20);
+			std::cout << getType() << getName() << " attacks " << target << " shouting: "
+			<< attacks[i] << " causing " << damages[i] << " points of damage!\n";
+		return (damages[i]);}
 
 	std::cout << getType() << getName() << " can't attack cause he is dead!\n";
 	return (0);

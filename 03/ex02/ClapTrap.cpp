@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cstdlib>
 
-ClapTrap::ClapTrap(std::string name):
+ClapTrap::ClapTrap(std::string const &name):
 	name(name),type("CL4P-TP "),hitpoints(100), maxhitpoints(100), energypoints(75),
 	maxenegrypoints(75), level(1), melee(25), ranged(35), armor(10) {
 	std::cout << "CL4P-TP " << name << " is Alive!\n";}

@@ -8,7 +8,7 @@ private:
 	/* data */
 public:
 	void ninjaShoebox(SuperTrap &);
-	SuperTrap(std::string name);
+	SuperTrap(std::string const &name);
 	SuperTrap(const SuperTrap &);
 	SuperTrap &operator=(const SuperTrap &a);
 	~SuperTrap();

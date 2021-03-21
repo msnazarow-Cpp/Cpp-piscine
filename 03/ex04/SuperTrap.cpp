@@ -1,17 +1,17 @@
 #include "SuperTrap.hpp"
 #include <iostream>
 
-SuperTrap::SuperTrap(std::string name):ClapTrap(name),FragTrap(name),NinjaTrap(name)
+SuperTrap::SuperTrap(std::string const &name):ClapTrap(name),FragTrap(name),NinjaTrap(name)
 {
 	setType("SUPR-TP ");
-	setHitpoints(100);
-	setMaxhitpoints(100);
-	setEnergypoints(120);
-	setMaxenegrypoints(120);
+	setHitpoints(FragTrap::startHitpoints);
+	setMaxhitpoints(FragTrap::startMaxhitpoints);
+	setEnergypoints(NinjaTrap::startEnergypoints);
+	setMaxenegrypoints(NinjaTrap::startMaxenegrypoints);
 	setLevel(1);
-	setMelee(60);
-	setRanged(20);
-	setArmor(5);
+	setMelee(NinjaTrap::startMelee);
+	setRanged(FragTrap::startRanged);
+	setArmor(FragTrap::startArmor);
 	std::cout << "SUPR-TP " << name << " is Alive!\n";
 }
 

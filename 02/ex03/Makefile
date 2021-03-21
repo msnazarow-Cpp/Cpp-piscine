@@ -1,7 +1,7 @@
-OBJ = contact.o phonebook.o
-NAME = phonebook
+OBJ = Fixed.o main.o
+NAME = eval_expr
 CXX ?= clang++ -std=c++98
-CPPFLAGS ?= -Wall -Wextra -Werror -g -MMD
+CPPFLAGS ?= -Wall -Wextra -Werror -g -MMD -D_GLIBCXX_DEBUG
 
 all: $(NAME)
 
@@ -16,4 +16,3 @@ fclean: clean
 
 re:	fclean all
 -include $(OBJ:.o=.d)
-.PHONY: all clean fclean re so

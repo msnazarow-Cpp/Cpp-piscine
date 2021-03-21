@@ -14,7 +14,7 @@ private:
 	int ranged;
 	unsigned int armor;
 public:
-	FragTrap(std::string name);
+	FragTrap(std::string const & name);
 	~FragTrap();
 	FragTrap(const FragTrap &);
 	int rangedAttack(std::string const &);

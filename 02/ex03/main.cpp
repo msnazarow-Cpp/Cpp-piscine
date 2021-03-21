@@ -61,7 +61,8 @@ Fixed arg(std::istringstream &ist, std::string &tmp)
 	{
 		if (tmp == "-")
 			negative = -1;
-		ist >> tmp;
+		if (!(ist >> tmp))
+			exit(1);
 	}
 	if (tmp == "(")
 	{

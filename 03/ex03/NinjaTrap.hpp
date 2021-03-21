@@ -9,7 +9,7 @@ class NinjaTrap: public ClapTrap
 private:
 	/* data */
 public:
-	NinjaTrap(std::string name);
+	NinjaTrap(std::string const & name);
 	~NinjaTrap();
 	NinjaTrap(const NinjaTrap &);
 	NinjaTrap &operator=(const NinjaTrap &);

@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cstdlib>
 
-ScavTrap::ScavTrap(std::string name):ClapTrap(name){
+ScavTrap::ScavTrap(std::string const & name):ClapTrap(name){
 	setType("SC4V-TP ");
 	setHitpoints(100);
 	setMaxhitpoints(100);
