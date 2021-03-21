@@ -2,7 +2,7 @@
 #include "ISpaceMarine.hpp"
 #include "Squad.hpp"
 #include "TacticalMarine.hpp"
-
+#include <iostream>
 int main()
 {
 	ISpaceMarine* bob = new TacticalMarine;
@@ -24,6 +24,8 @@ int main()
 		cur->battleCry();
 		cur->rangedAttack();
 		cur->meleeAttack();
+		std::cout << "Continue ? ";
+		std::cin.get();
 	}
 	delete vlc;
 return 0;

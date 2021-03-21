@@ -26,8 +26,8 @@ int main(int argc, char const *argv[])
 	}
 	struct stat statbuf;
 	stat(argv[1], &statbuf);
-	if (S_ISDIR(statbuf.st_mode))
-		std::cout << "ERROR: " << argv[1] << ": This is directory\n";
+	if (!S_ISREG(statbuf.st_mode))
+		std::cout << "ERROR: " << argv[1] << ": This is not a file!\n";
 	else {
 		file.open(argv[1]);
 		if (errno == EACCES)

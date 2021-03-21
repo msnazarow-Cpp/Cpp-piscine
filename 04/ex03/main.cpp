@@ -4,6 +4,7 @@
 #include "Cure.hpp"
 #include "Ice.hpp"
 #include "MateriaSource.hpp"
+#include <iostream>
 
 int main()
 {
@@ -15,6 +16,8 @@ int main()
 	ICharacter* me = new Character("me");
 	me->use(0, *me);
 	me->use(1, *me);
+	std::cout << "Continue ? ";
+	std::cin.get();
 	AMateria* tmp;
 	tmp = src->createMateria("ice");
 	me->equip(tmp);

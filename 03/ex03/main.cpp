@@ -3,6 +3,7 @@
 #include "ClapTrap.hpp"
 #include "NinjaTrap.hpp"
 #include <cstdlib>
+#include <iostream>
 
 int main(void)
 {
@@ -17,6 +18,8 @@ int main(void)
 	Billy.takeDamage(Bob.vaulthunter_dot_exe(Billy.getName()));
 	Billy.beRepaired(10);
 	Bob.beRepaired(10);
+	std::cout << "Continue ? ";
+	std::cin.get();
 	Billy.takeDamage(Bob.vaulthunter_dot_exe(Billy.getName()));
 	Billy.takeDamage(Bob.rangedAttack(Billy.getName()));
 	Bob.takeDamage(Billy.meleeAttack(Bob.getName()));

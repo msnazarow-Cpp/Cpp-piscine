@@ -12,6 +12,8 @@ int main(void)
 	{
 		std::cerr << e.what() << '\n';
 	}
+	std::cout << "Continue ? ";
+	std::cin.get();
 	try
 	{
 		Form form("Diloma", 0, 151);
@@ -20,7 +22,8 @@ int main(void)
 	{
 		std::cerr << e.what() << '\n';
 	}
-
+	std::cout << "Continue ? ";
+	std::cin.get();
 	try
 	{
 		Form form("Diloma",50, 10);
@@ -31,7 +34,8 @@ int main(void)
 	{
 		std::cerr << e.what() << '\n';
 	}
-
+	std::cout << "Continue ? ";
+	std::cin.get();
 	Form form("Diloma",50, 10);
 	Bureaucrat Loh("Loh", 100);
 	Loh.signForm(form);

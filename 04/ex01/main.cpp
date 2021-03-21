@@ -27,6 +27,8 @@ int main()
 	std::cout << *Samurai;
 	Samurai->attack(radscp);
 	std::cout << *Samurai;
+	std::cout << "Continue ? ";
+	std::cin.get();
 	Enemy* supmt = new SuperMutant();
 	Samurai->equip(pf);
 	std::cout << *Samurai;
@@ -35,6 +37,8 @@ int main()
 	Samurai->attack(supmt);
 	std::cout << *Samurai;
 	Samurai->attack(supmt);
+	std::cout << "Continue ? ";
+	std::cin.get();
 	Samurai->recoverAP();
 	Samurai->recoverAP();
 	Samurai->recoverAP();

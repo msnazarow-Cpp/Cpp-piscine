@@ -1,6 +1,7 @@
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 #include <cstdlib>
+#include <iostream>
 
 int main(void)
 {
@@ -22,6 +23,8 @@ int main(void)
 	Billy.takeDamage(Bob.vaulthunter_dot_exe(Billy.getName()));
 	Bob.takeDamage(Billy.meleeAttack(Bob.getName()));
 	Billy.takeDamage(Bob.vaulthunter_dot_exe(Billy.getName()));
+	std::cout << "Continue ? ";
+	std::cin.get();
 	Billy.challengeNewcomer();
 	Billy.challengeNewcomer();
 	Billy.challengeNewcomer();

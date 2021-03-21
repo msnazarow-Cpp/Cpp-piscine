@@ -1,7 +1,7 @@
 #include <string>
 #include <iostream>
 #include <cstdlib>
-
+#include <iomanip>
 typedef struct serialize
 {
 	std::string *str;
@@ -24,25 +24,32 @@ std::string *randomstr(void)
 
 void *serialize(void)
 {
-	Data *memory = new Data;
-	memory->a = rand();
-	memory->str = randomstr();
-	memory->str2 = randomstr();
-	std::cout << *memory->str << std::endl << *memory->str2 << std::endl <<  memory->a  << std::endl;
+	void *memory = ::operator new(2 * sizeof(std::string *) + sizeof(int));
+
+	*reinterpret_cast<std::string**>(memory) = randomstr();
+	*reinterpret_cast<int*>(reinterpret_cast<char*>(memory) + sizeof(std::string*)) = rand();
+	*reinterpret_cast<std::string**>(reinterpret_cast<char*>(memory) + sizeof(std::string*) + sizeof(int)) = randomstr();
+	std::cout << std::setw(15) << "first string: "<< **reinterpret_cast<std::string**>(memory) << std::endl;
+	std::cout << std::setw(15) <<  "second string: " << **reinterpret_cast<std::string**>(reinterpret_cast<char*>(memory) + sizeof(std::string*) + sizeof(int))  << std::endl;
+	std::cout << std::setw(15) << "integer : " << *reinterpret_cast<int*>(reinterpret_cast<char*>(memory) + sizeof(std::string*)) << std::endl;
 	return (memory);
 }
 
 Data *deserialize(void *raw)
 {
-	Data *memory = (Data*)raw;
+	Data *memory = new Data;
+	memory->str = *reinterpret_cast<std::string**>(raw);
+	memory->a = *reinterpret_cast<int*>(reinterpret_cast<char*>(raw) + sizeof(std::string*));
+	memory->str2 = *reinterpret_cast<std::string**>(reinterpret_cast<char*>(raw) + sizeof(std::string*) + sizeof(int));
+	::operator delete(raw);
 	return memory;
 }
 
 int main(void)
 {
 	srand(time(NULL));
-	Data *memory = reinterpret_cast<Data*>(deserialize(serialize()));
-	std::cout << *memory->str << std::endl << *memory->str2 << std::endl <<  memory->a  << std::endl;
+	Data *memory = deserialize(serialize());
+	std::cout << std::setw(15) << "first string: "<< *memory->str << std::endl << std::setw(15) <<  "second string: " <<  *memory->str2 << std::endl << std::setw(15) << "number: " << memory->a  << std::endl;
 	delete memory;
 	return 0;
 }

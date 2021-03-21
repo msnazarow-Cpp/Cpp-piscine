@@ -2,6 +2,7 @@
 #include "ScavTrap.hpp"
 #include "ClapTrap.hpp"
 #include <cstdlib>
+#include <iostream>
 
 int main(void)
 {
@@ -15,6 +16,8 @@ int main(void)
 	Billy.takeDamage(Bob.vaulthunter_dot_exe(Billy.getName()));
 	Billy.beRepaired(10);
 	Bob.beRepaired(10);
+	std::cout << "Continue ? ";
+	std::cin.get();
 	Billy.takeDamage(Bob.vaulthunter_dot_exe(Billy.getName()));
 	Billy.takeDamage(Bob.rangedAttack(Billy.getName()));
 	Billy.takeDamage(Bob.rangedAttack(Billy.getName()));
@@ -23,6 +26,8 @@ int main(void)
 	Billy.takeDamage(Bob.vaulthunter_dot_exe(Billy.getName()));
 	Bob.takeDamage(Billy.meleeAttack(Bob.getName()));
 	Billy.takeDamage(Bob.vaulthunter_dot_exe(Billy.getName()));
+	std::cout << "Continue ? ";
+	std::cin.get();
 	Billy.challengeNewcomer();
 	Billy.challengeNewcomer();
 	Billy.challengeNewcomer();

@@ -19,6 +19,8 @@ int main(void)
 		std::cerr << e.what() << '\n';
 	}
 	delete myform;
+	std::cout << "Continue ? ";
+	std::cin.get();
 	Intern *idiotOne = new Intern();
 	Bureaucrat *hermes = new Bureaucrat("Hermes Conrad", 37);
 	Bureaucrat *bob = new Bureaucrat("Bobby Bobson", 123);
@@ -39,6 +41,8 @@ int main(void)
 		std::cerr << e.what() << '\n';
 	}
 		delete myform;
+	std::cout << "Continue ? ";
+	std::cin.get();
 	try
 	{
 		myform = ob.doBureaucracy("PresidentialPardonForm", "Pigley");
@@ -52,6 +56,8 @@ int main(void)
 		std::cerr << e.what() << '\n';
 	}
 		delete myform;
+	std::cout << "Continue ? ";
+	std::cin.get();
 	try
 	{
 		myform = ob.doBureaucracy("RobotomyRequestForm", "Pigley");
@@ -65,6 +71,8 @@ int main(void)
 		std::cerr << e.what() << '\n';
 	}
 		delete myform;
+	std::cout << "Continue ? ";
+	std::cin.get();
 	try
 	{
 		myform = ob.doBureaucracy("ShrubberyCreationForm", "Pigley");
@@ -78,6 +86,8 @@ int main(void)
 		std::cerr << e.what() << '\n';
 	}
 		delete myform;}
+	std::cout << "Continue ? ";
+	std::cin.get();
 	Form *myform = 0;
 	Intern *idiotOne = new Intern();
 	Bureaucrat *hermes = new Bureaucrat("Hermes Conrad", 1);
@@ -99,6 +109,8 @@ int main(void)
 		std::cerr << e.what() << '\n';
 	}
 		delete myform;
+	std::cout << "Continue ? ";
+	std::cin.get();
 	try
 	{
 		myform = ob.doBureaucracy("PresidentialPardonForm", "Pigley");
@@ -112,6 +124,8 @@ int main(void)
 		std::cerr << e.what() << '\n';
 	}
 		delete myform;
+	std::cout << "Continue ? ";
+	std::cin.get();
 	try
 	{
 		myform = ob.doBureaucracy("RobotomyRequestForm", "Pigley");
@@ -125,6 +139,8 @@ int main(void)
 		std::cerr << e.what() << '\n';
 	}
 		delete myform;
+	std::cout << "Continue ? ";
+	std::cin.get();
 	try
 	{
 		myform = ob.doBureaucracy("ShrubberyCreationForm", "Pigley");

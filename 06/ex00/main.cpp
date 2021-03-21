@@ -1,11 +1,32 @@
 #include <iostream>
 #include <ios>
 #include <cstdlib>
-#include "main.hpp"
 #include <climits>
 #include <cfloat>
 #include <string.h>
 #include <iomanip>
+
+template <typename T>
+void	printchar(T a)
+{
+	std::cout << std::setw(8) << "char: ";
+	if (a >= 32 && a <= 126)
+		std::cout << static_cast<char>(a) << std::endl;
+	else if (a < 32 && a >= 0)
+		std::cout << "Non displayable" << std::endl;
+	else
+		std::cout << "impossible" << std::endl;
+}
+
+template <typename T>
+void printint (T a)
+{
+	std::cout << std::setw(8) << "int: ";
+	if (a > static_cast<T>(INT_MAX) || a < static_cast<T>(INT_MIN))
+		std::cout << "impossible" << std::endl;
+	else
+		std::cout << static_cast<int>(a) << std::endl;
+}
 
 int	error()
 {

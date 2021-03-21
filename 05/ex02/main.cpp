@@ -15,6 +15,8 @@ int main(void)
 	{
 		std::cerr << e.what() << '\n';
 	}
+	std::cout << "Continue ? ";
+	std::cin.get();
 	try
 	{
 		RobotomyRequestForm form("Diloma");
@@ -23,7 +25,8 @@ int main(void)
 	{
 		std::cerr << e.what() << '\n';
 	}
-
+	std::cout << "Continue ? ";
+	std::cin.get();
 	try
 	{
 		ShrubberyCreationForm form("Diloma");
@@ -34,7 +37,8 @@ int main(void)
 	{
 		std::cerr << e.what() << '\n';
 	}
-
+	std::cout << "Continue ? ";
+	std::cin.get();
 	ShrubberyCreationForm form("Diloma");
 	Bureaucrat Loh("Loh", 150);
 	Loh.signForm(form);
@@ -47,6 +51,8 @@ int main(void)
 	{
 		std::cerr << e.what() << '\n';
 	}
+	std::cout << "Continue ? ";
+	std::cin.get();
 	Crutoy.executeForm(form);
 	Crutoy.signForm(form);
 	form.execute(Crutoy);

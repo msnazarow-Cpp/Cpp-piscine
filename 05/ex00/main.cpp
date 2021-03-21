@@ -12,6 +12,8 @@ int main(void)
 	{
 		std::cerr << e.what() << '\n';
 	}
+	std::cout << "Continue ? ";
+	std::cin.get();
 	try
 	{
 		Bureaucrat crut("Borya", -10);
@@ -20,7 +22,8 @@ int main(void)
 	{
 		std::cerr << e.what() << '\n';
 	}
-
+	std::cout << "Continue ? ";
+	std::cin.get();
 	try
 	{
 		Bureaucrat crot("Valya", 1);

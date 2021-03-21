@@ -93,7 +93,6 @@ Fixed eval_expr(std::istringstream &ist, std::string &tmp)
 		tmp2 = tmp;
 		if (tmp == "+" || tmp == "-")
 		{
-			//ist >> tmp;
 			arg2 = expr2(ist, tmp);
 		}
 		else if (tmp == "*" || tmp == "/")
@@ -102,10 +101,6 @@ Fixed eval_expr(std::istringstream &ist, std::string &tmp)
 			arg2 = arg(ist, tmp);
 		}
 		arg1 = calc(arg1, arg2, tmp2);
-		//if (tmp == ")")
-		//{
-		//	break;
-		//}
 		while (!(tmp == "+" || tmp == "-" || tmp == "*" || tmp == "/"))
 		{
 			if (tmp == ")")
@@ -114,7 +109,6 @@ Fixed eval_expr(std::istringstream &ist, std::string &tmp)
 				return arg1;
 		}
 	}
-//	ist >> tmp;
 	return (arg1);
 }
 
