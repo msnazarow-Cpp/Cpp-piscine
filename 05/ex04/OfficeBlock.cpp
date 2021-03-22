@@ -1,22 +1,11 @@
 #include "OfficeBlock.hpp"
 #include <iostream>
 
-OfficeBlock::OfficeBlock(Intern *intern, Bureaucrat *signcrat, Bureaucrat *execcrat)
+OfficeBlock::OfficeBlock(Intern * const intern, Bureaucrat * const signcrat, Bureaucrat * const execcrat)
 	: _intern(intern),
 	  _signcrat(signcrat),
-	  _execcrat(execcrat)
-{
-
-}
-
-OfficeBlock::OfficeBlock()
-	: _intern(0),
-	  _signcrat(0),
-	  _execcrat(0)
-{
-
-}
-
+	  _execcrat(execcrat){}
+	  
 OfficeBlock::~OfficeBlock()
 {
 	delete _signcrat;
@@ -24,7 +13,7 @@ OfficeBlock::~OfficeBlock()
 	delete _intern;
 }
 
-Form *OfficeBlock::doBureaucracy(std::string name, std::string target) {
+Form *OfficeBlock::doBureaucracy(std::string const & name, std::string const & target) {
 	if (!_intern)
 		throw NoInternException();
 	else if (!_signcrat)
@@ -43,28 +32,28 @@ Form *OfficeBlock::doBureaucracy(std::string name, std::string target) {
 	return (form);
 }
 
-Intern *OfficeBlock::intern() const {
+Intern * OfficeBlock::intern() const {
 	return _intern;
 }
 
 
-void OfficeBlock::setIntern(Intern *value) {
+void OfficeBlock::setIntern(Intern * const value) {
 	_intern = value;
 }
 
-Bureaucrat *OfficeBlock::signcrat() const {
+Bureaucrat * OfficeBlock::signcrat() const {
 	return _signcrat;
 }
 
-void OfficeBlock::setSigncrat(Bureaucrat *value) {
+void OfficeBlock::setSigncrat(Bureaucrat * const value) {
 	_signcrat = value;
 }
 
-Bureaucrat *OfficeBlock::execcrat() const {
+Bureaucrat * OfficeBlock::execcrat() const {
 	return _execcrat;
 }
 
-void OfficeBlock::setExeccrat(Bureaucrat *value) {
+void OfficeBlock::setExeccrat(Bureaucrat * const value) {
 	_execcrat = value;
 }
 

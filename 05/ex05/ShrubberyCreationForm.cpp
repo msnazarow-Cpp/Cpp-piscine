@@ -1,6 +1,6 @@
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string const & target)
 	: Form("ShrubberyCreationForm", 145, 137)
 {
 	setTarget(target);
@@ -17,10 +17,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return (*this);
 }
 
-ShrubberyCreationForm::~ShrubberyCreationForm()
-{
-
-}
+ShrubberyCreationForm::~ShrubberyCreationForm(){}
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 	Form::execute(executor);
@@ -29,6 +26,6 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 	file << "      /\\\n     /\\*\\\n    /\\O\\*\\\n   /*/\\/\\/\\\n  /\\O\\/\\*\\/\\\n /\\*\\/\\*\\/\\/\\\n/\\O\\/\\/*/\\/O/\\\n      ||\n      ||\n      ||      " << std::endl;
 	  file.close();
 }
-ShrubberyCreationForm *ShrubberyCreationForm::create(std::string target) {
+ShrubberyCreationForm *ShrubberyCreationForm::create(std::string const & target) {
 	return (new ShrubberyCreationForm(target));
 }

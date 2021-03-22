@@ -1,6 +1,6 @@
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string const & target)
 	: Form("ShrubberyCreationForm", 145, 137)
 {
 	setTarget(target);

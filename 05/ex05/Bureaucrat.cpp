@@ -1,7 +1,7 @@
 #include "Form.hpp"
 #include <iostream>
 
-Bureaucrat::Bureaucrat(std::string name, int grade):name(name),grade(grade)
+Bureaucrat::Bureaucrat(std::string const & name, int grade):name(name),grade(grade)
 {
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();
@@ -9,10 +9,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade):name(name),grade(grade)
 		throw Bureaucrat::GradeTooLowException();
 }
 
-Bureaucrat::~Bureaucrat()
-{
-
-}
+Bureaucrat::~Bureaucrat(){}
 
 Bureaucrat::Bureaucrat(const Bureaucrat &a) : name(a.name), grade(a.grade)
 {
@@ -23,11 +20,11 @@ Bureaucrat::Bureaucrat(const Bureaucrat &a) : name(a.name), grade(a.grade)
 }
 
 
-std::string Bureaucrat::getName() const {
+std::string const & Bureaucrat::getName() const {
 	return name;
 }
 
-std::ostream& operator<<(std::ostream & stream, Bureaucrat &a)
+std::ostream& operator<< (std::ostream & stream, Bureaucrat const & a)
 {
 	stream << a.getName() << ", bureaucrat grade " << a.getGrade();
 	return (stream);
@@ -68,7 +65,7 @@ void	Bureaucrat::signForm(Form &form) const {
 		form.beSigned(*this);
 		std::cout << "Bureaucrat " <<  name << " (Grade " << grade  << ") sign a " << form.name() << " (s.grade " << form.gradeToSign() << ", ex.grade " << form.gradeToExec()  << ") targeted on " << form.target() << " (Unsigned)" << std::endl;
 	}
-	catch(const std::exception& e)
+	catch(const std::exception & e)
 	{
 		std::cerr  << name << " cannot sign " << form.name() << " because " << e.what() << std::endl;
 	}
@@ -81,7 +78,7 @@ void	Bureaucrat::executeForm(Form const & form) {
 		form.execute(*this);
 		std::cout << "Bureaucrat " << name << " executes " << form.name() << " (s.grade " << form.gradeToSign() << ", ex.grade " << form.gradeToExec()  << ") targeted on " << form.target() << " (Signed)" << std::endl;
 	}
-	catch(const std::exception& e)
+	catch(const std::exception & e)
 	{
 		std::cerr  << name << " cannot execute " << form.name() << " because " << e.what() << std::endl;
 	}

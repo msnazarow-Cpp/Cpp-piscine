@@ -8,17 +8,15 @@ int main(void)
 {
 	srand(time(NULL));
 	Intern intern;
-	{Form *form = intern.makeform("PresidentialPardonForm", "Bender"); delete form;}
+	{Form *form = intern.makeform("PresidentialPardonForm", "Bender"); std::cout << *form << std::endl; delete form;}
 	std::cout << "Continue ? ";
 	std::cin.get();
-	{Form *form = intern.makeform("RobotomyRequestForm", "Bender"); delete form;}
+	{Form *form = intern.makeform("RobotomyRequestForm", "Bender"); std::cout << *form << std::endl; delete form;}
 	std::cout << "Continue ? ";
 	std::cin.get();
-	{Form *form = intern.makeform("ShrubberyCreationForm", "Bender"); delete form;}
+	{Form *form = intern.makeform("ShrubberyCreationForm", "Bender"); std::cout << *form << std::endl; delete form;}
 	std::cout << "Continue ? ";
 	std::cin.get();
 	{Form *form = intern.makeform("NotExistForm", "Bender"); delete form;}
-	std::cout << "Continue ? ";
-	std::cin.get();
 	return 0;
 }

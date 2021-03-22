@@ -1,16 +1,13 @@
 #include "PresidentialPardonForm.hpp"
 #include <iostream>
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target)
+PresidentialPardonForm::PresidentialPardonForm(std::string const & target)
 	: Form("PresidentialPardonForm", 25, 5)
 {
 	setTarget(target);
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &form):Form(form)
-{
-
-}
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &form):Form(form){}
 
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm & form)
 {
@@ -18,10 +15,7 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
 	return (*this);
 }
 
-PresidentialPardonForm::~PresidentialPardonForm()
-{
-
-}
+PresidentialPardonForm::~PresidentialPardonForm(){}
 
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const {
 	Form::execute(executor);

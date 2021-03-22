@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cstdlib>
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target)
+RobotomyRequestForm::RobotomyRequestForm(std::string const & target)
 	: Form("RobotomyRequestForm", 72, 45)
 {
 	setTarget(target);

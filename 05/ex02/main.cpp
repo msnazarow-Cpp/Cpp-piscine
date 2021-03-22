@@ -10,6 +10,8 @@ int main(void)
 	try
 	{
 		PresidentialPardonForm form("Diloma");
+		std::cout << form << std::endl;
+		form.beSigned(Bureaucrat("Loh", 100));
 	}
 	catch(const std::exception& e)
 	{
@@ -20,6 +22,8 @@ int main(void)
 	try
 	{
 		RobotomyRequestForm form("Diloma");
+		std::cout << form << std::endl;
+		form.beSigned(Bureaucrat("Loh", 100));
 	}
 	catch(const std::exception& e)
 	{

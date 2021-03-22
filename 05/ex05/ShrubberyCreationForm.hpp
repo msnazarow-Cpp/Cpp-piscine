@@ -3,14 +3,12 @@
 
 class ShrubberyCreationForm: public Form
 {
-private:
+	public:
+		ShrubberyCreationForm(std::string const &target);
+		ShrubberyCreationForm(const ShrubberyCreationForm &form);
+		ShrubberyCreationForm &operator=(const ShrubberyCreationForm & form);
+		~ShrubberyCreationForm();
 
-public:
-	ShrubberyCreationForm(std::string target);
-	ShrubberyCreationForm(const ShrubberyCreationForm &form);
-	ShrubberyCreationForm &operator=(const ShrubberyCreationForm & form);
-	~ShrubberyCreationForm();
-
-	void execute(Bureaucrat const & executor) const;
-	static ShrubberyCreationForm *create(std::string target);
+		void execute(Bureaucrat const & executor) const;
+		static ShrubberyCreationForm *create(std::string const & target);
 };

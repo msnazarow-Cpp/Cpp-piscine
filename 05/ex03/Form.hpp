@@ -11,7 +11,7 @@ private:
 	const int _gradeToExec;
 	std::string _target;
 public:
-	Form(std::string name,  int gradeToSign, int gradeToExec);
+	Form(std::string const & name = "",  int gradeToSign = 0, int gradeToExec = 0);
 	Form(const Form &form);
 	Form &operator=(const Form &form);
 	virtual ~Form();

@@ -1,7 +1,7 @@
 #include "Form.hpp"
 #include <fstream>
 
-Form::Form(std::string name, int gradeToSign, int gradeToExec)
+Form::Form(std::string const & name, int gradeToSign, int gradeToExec)
 	: _name(name),
 	  _sign(0),
 	  _gradeToSign(gradeToSign),

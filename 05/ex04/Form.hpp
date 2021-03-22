@@ -11,12 +11,12 @@ private:
 	const int _gradeToExec;
 	std::string _target;
 public:
-	Form(std::string name,  int gradeToSign, int gradeToExec);
+	Form(std::string  const & name = "",  int gradeToSign = 0, int gradeToExec = 0);
 	Form(const Form &form);
 	Form &operator=(const Form &form);
 	virtual ~Form();
 
-	std::string name() const;
+	std::string const & name() const;
 	void beSigned(const Bureaucrat &crat);
 	bool sign() const;
 
@@ -42,8 +42,8 @@ public:
 	};
 	virtual void execute(Bureaucrat const & executor) const = 0;
 
-	std::string target() const;
+	std::string const & target() const;
 	void setTarget(const std::string &value);
 };
 
-std::ostream &operator<<(std::ostream &stream, Form & form);
+std::ostream &operator<<(std::ostream &stream, Form const & form);

@@ -3,14 +3,12 @@
 
 class PresidentialPardonForm: public Form
 {
-private:
+	public:
+		PresidentialPardonForm(std::string const & target = "");
+		PresidentialPardonForm(const PresidentialPardonForm &form);
+		PresidentialPardonForm &operator=(const PresidentialPardonForm & form);
+		~PresidentialPardonForm();
 
-public:
-	PresidentialPardonForm(std::string target);
-	PresidentialPardonForm(const PresidentialPardonForm &form);
-	PresidentialPardonForm &operator=(const PresidentialPardonForm & form);
-	~PresidentialPardonForm();
-
-	void execute(Bureaucrat const & executor) const;
-	static PresidentialPardonForm *create(std::string target);
+		void execute(Bureaucrat const & executor) const;
+		static PresidentialPardonForm *create(std::string const & target);
 };

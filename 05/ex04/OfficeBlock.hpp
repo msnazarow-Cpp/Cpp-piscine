@@ -7,10 +7,9 @@ private:
 	Bureaucrat *_signcrat;
 	Bureaucrat *_execcrat;
 public:
-	OfficeBlock(Intern *intern, Bureaucrat *signcrat, Bureaucrat *execcrat);
-	OfficeBlock();
+	OfficeBlock(Intern * const intern = 0, Bureaucrat * const signcrat = 0, Bureaucrat * const execcrat = 0);
 	~OfficeBlock();
-	Form *doBureaucracy(std::string name, std::string target);
+	Form *doBureaucracy(std::string const & name, std::string const & target);
 
 	class NoInternException: public std::exception
 	{
@@ -27,12 +26,12 @@ public:
 		char const *what() const throw();
 	};
 
-	Intern *intern() const;
-	void setIntern(Intern *value);
+	Intern * intern() const;
+	void setIntern(Intern * const value);
 
-	Bureaucrat *signcrat() const;
-	void setSigncrat(Bureaucrat *value);
+	Bureaucrat * signcrat() const;
+	void setSigncrat(Bureaucrat * const value);
 
-	Bureaucrat *execcrat() const;
-	void setExeccrat(Bureaucrat *value);
+	Bureaucrat * execcrat() const;
+	void setExeccrat(Bureaucrat * const value);
 };

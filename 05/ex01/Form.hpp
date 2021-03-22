@@ -11,7 +11,7 @@ private:
 	const int _gradeToExec;
 
 public:
-	Form(std::string name,  int gradeToSign, int gradeToExec);
+	Form(std::string const & name = "",  int gradeToSign = 0, int gradeToExec = 0);
 	Form(const Form & form);
 	Form &operator=(const Form & form);
 	~Form();
@@ -34,4 +34,4 @@ public:
 	};
 };
 
-std::ostream &operator<<(std::ostream &stream, Form & form);
+std::ostream &operator<<(std::ostream &stream, Form const & form);

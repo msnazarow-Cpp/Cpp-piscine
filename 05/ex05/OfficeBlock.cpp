@@ -4,18 +4,7 @@
 OfficeBlock::OfficeBlock(Intern *intern, Bureaucrat *signcrat, Bureaucrat *execcrat)
 	: _intern(intern),
 	  _signcrat(signcrat),
-	  _execcrat(execcrat)
-{
-
-}
-
-OfficeBlock::OfficeBlock()
-	: _intern(0),
-	  _signcrat(0),
-	  _execcrat(0)
-{
-
-}
+	  _execcrat(execcrat){}
 
 OfficeBlock::~OfficeBlock()
 {
@@ -24,7 +13,7 @@ OfficeBlock::~OfficeBlock()
 	delete _intern;
 }
 
-Form *OfficeBlock::doBureaucracy(std::string name, std::string target) {
+Form *OfficeBlock::doBureaucracy(std::string const & name, std::string const & target) {
 	if (!_intern)
 		throw NoInternException();
 	else if (!_signcrat)

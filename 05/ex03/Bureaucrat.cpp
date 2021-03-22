@@ -1,7 +1,7 @@
 #include "Form.hpp"
 #include <iostream>
 
-Bureaucrat::Bureaucrat(std::string name, int grade):name(name),grade(grade)
+Bureaucrat::Bureaucrat(std::string const & name, int grade):name(name),grade(grade)
 {
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();
@@ -23,11 +23,11 @@ Bureaucrat::Bureaucrat(const Bureaucrat &a) : name(a.name), grade(a.grade)
 }
 
 
-std::string Bureaucrat::getName() const {
+std::string const & Bureaucrat::getName() const {
 	return name;
 }
 
-std::ostream& operator<<(std::ostream & stream, Bureaucrat &a)
+std::ostream& operator<<(std::ostream & stream, Bureaucrat const & a)
 {
 	stream << a.getName() << ", bureaucrat grade " << a.getGrade();
 	return (stream);

@@ -1,7 +1,7 @@
 #include "Form.hpp"
 #include <fstream>
 
-Form::Form(std::string name, int gradeToSign, int gradeToExec)
+Form::Form(std::string const & name, int gradeToSign, int gradeToExec )
 	: _name(name),
 	  _sign(0),
 	  _gradeToSign(gradeToSign),
@@ -47,7 +47,7 @@ char const* Form::GradeTooHighException::what() const throw() {
 	return ("!Exception!: The grade can't be that high");
 }
 
-std::string Form::name() const {
+std::string const & Form::name() const {
 	return _name;
 }
 
@@ -58,10 +58,10 @@ void Form::beSigned(const Bureaucrat & crat) {
 		throw GradeTooLowException();
 }
 
-std::ostream& operator<<(std::ostream & stream, Form &a)
+std::ostream& operator<<(std::ostream & stream, Form const & a)
 {
 	stream << a.name() << ", form is " << (a.sign() ? "signed" : "unsigned") <<
-	" and it has " << a.gradeToExec() << " grade to sxecute it and " << a.gradeToSign() << " grade to be signed " << std::endl;
+	" and it has " << a.gradeToExec() << " grade to execute it and " << a.gradeToSign() << " grade to be signed " << std::endl;
 	return (stream);
 }
 
@@ -85,7 +85,7 @@ char const *Form::UnsidnedException::what() const throw() {
 	return ("!Exception!: Form is not signed yet");
 }
 
-std::string Form::target() const {
+std::string const & Form::target() const {
 	return _target;
 }
 
