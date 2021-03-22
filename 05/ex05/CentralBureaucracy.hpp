@@ -1,20 +1,20 @@
 #pragma once
 #include "OfficeBlock.hpp"
-#include <queue>
+#include "Quque.hpp"
 
 class CentralBureaucracy
 {
 private:
 	OfficeBlock blocks[20];
-	std::queue <Form*> forms;
-	std::queue <std::string> targets;
-	std::queue <Bureaucrat*> crats;
+	Quque <Form*> *forms;
+	Quque <std::string> *targets;
+	Quque <Bureaucrat*> *crats;
 public:
 	CentralBureaucracy();
 	CentralBureaucracy(CentralBureaucracy &buro);
 	CentralBureaucracy&operator=(CentralBureaucracy &buro);
 	~CentralBureaucracy();
 	void feed(Bureaucrat *crat);
-	void queueUp(std::string name);
+	void queueUp(std::string const & name);
 	void doBureaucracy(void);
 };

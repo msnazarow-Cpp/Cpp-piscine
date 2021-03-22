@@ -82,10 +82,10 @@ int main(int argc, char const *argv[])
 		return (error());
 	if (strlen(argv[1]) == 1 && argv[1][0] >= 32 && (argv[1][0] < '0' || argv[1][i] > '9')  && argv[1][0] <= 126)
 	{
-		std::cout << "char: '" << argv[1][0] << "'" << std::endl;
-		std::cout << "int: " << static_cast<int>(argv[1][0]) << std::endl;
-		std::cout << "float: " << static_cast<float>(argv[1][0]) << 'f' << std::endl;
-		std::cout << "double: " << static_cast<double>(argv[1][0]) << std::endl;
+		std::cout << std::setw(8) << "char: '" << argv[1][0] << "'" << std::endl;
+		std::cout << std::setw(8) << "int: " << static_cast<int>(argv[1][0]) << std::endl;
+		std::cout << std::setw(8) << "float: " << static_cast<float>(argv[1][0]) << 'f' << std::endl;
+		std::cout << std::setw(8) << "double: " << static_cast<double>(argv[1][0]) << std::endl;
 		return (0);
 	}
 	char *check;
