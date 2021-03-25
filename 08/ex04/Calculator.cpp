@@ -9,6 +9,8 @@
 #include <iomanip>
 #include <ios>
 
+int exit_error(int n, const char *s);
+
 Calculator::Calculator() 
 {
     
@@ -19,14 +21,21 @@ Calculator::Calculator(const Calculator &)
     
 }
 
-Calculator& Calculator::operator=(const Calculator &) 
+Calculator& Calculator::operator=(const Calculator & calc) 
 {
+    for (size_t i = 0; i < tokens.size(); i++)
+        delete tokens[i];
+    for (size_t i = 0; i < tokens.size(); i++)
+        tokens[i] = calc.tokens[i];
+    out = calc.out;
+    postfix = calc.postfix;    
     return (*this);
 }
 
 Calculator::~Calculator() 
 {
-    
+    for (size_t i = 0; i < tokens.size(); i++)
+        delete tokens[i];
 }
 
 void Calculator::parse(const char *str) 
@@ -34,6 +43,7 @@ void Calculator::parse(const char *str)
     int i = 0;
     int a;
     char *end;
+    int coll = 0;
     while (str[i])
     {
         char c = str[i];
@@ -45,12 +55,16 @@ void Calculator::parse(const char *str)
            }
         else if ((c == '+' || c == '-' ||  c == '*' ||  c == '/') && (++i))
             tokens.push_back(new Operation(c, ((c == '+' || c == '-') ? 1 : 2)));
-        else if (c == '(' && (++i))
+        else if (c == '(' && (++i) && ++coll)
             tokens.push_back(new ParOpen());
-        else if (c == ')' && (++i))
+        else if (c == ')' && (++i) && --coll)
             tokens.push_back(new ParClose());
-        else
+        else if (c == ' ')
             i++;
+        else
+            exit_error(1, "Expression error");
+        if (coll < 0)
+            exit_error(1, "Expression error");
     }
 }
 
@@ -73,7 +87,6 @@ void Calculator::printPostfix(void)
         {
             tokens[i]->print();
             out.push_back(tokens[i]);
-            nums.push(dynamic_cast<Number*>(tokens[i]));
         }
         else if (dynamic_cast<ParOpen*>(tokens[i]))
             postfix.push(tokens[i]);
@@ -91,7 +104,6 @@ void Calculator::printPostfix(void)
         else if (dynamic_cast<Operation*>(tokens[i]))
         {
             while (!postfix.empty() && dynamic_cast<Operation*>(postfix.top()))
-            // && dynamic_cast<Operation*>(postfix.top())->priority > dynamic_cast<Operation*>(tokens[i])->priority)
             {
                 out.push_back(postfix.top());
                 postfix.top()->print();
@@ -130,16 +142,30 @@ void Calculator::printSteps(void)
         }
         else while (i < out.size() && dynamic_cast<Operation*>(out[i]))
         {
-            int b = dynamic_cast<Number*>(postfix.top())->n;
-            postfix.pop();
-            int a = dynamic_cast<Number*>(postfix.top())->n;
-            postfix.pop();
+            if (postfix.size() < 2)
+                exit_error(2, "Error in expression");
+            int a = 0,b = 0;
+            if (!postfix.empty())
+            {
+                if (dynamic_cast<Number*>(postfix.top()))
+                {
+                    b = dynamic_cast<Number*>(postfix.top())->n;
+                    postfix.pop();
+                }
+                if (dynamic_cast<Number*>(postfix.top()))
+                {
+                    a = dynamic_cast<Number*>(postfix.top())->n;
+                    postfix.pop();
+                }
+            }
             switch (dynamic_cast<Operation*>(out[i])->c)
             {
                 case '+':
                 {
                     std::cout << "I Op(+) "<< std::setw(15) << std::setiosflags(std::ios::left) << "| OP Add " << "| ST ";
-                    postfix.push(new Number(a + b));
+                    Number *n = new Number(a + b);
+                    postfix.push(n);
+                    tokens.push_back(n);
                     std::stack<Token*> a = postfix;
                     for (size_t i = 0; i < postfix.size() ; i++)
                     {
@@ -151,7 +177,11 @@ void Calculator::printSteps(void)
                 }
                 case '/':
                 {
-                    postfix.push(new Number(a / b));
+                    if (b == 0)
+                        throw std::runtime_error("Exception: Division by zero");
+                    Number *n = new Number(a / b);
+                    postfix.push(n);
+                    tokens.push_back(n);
                     std::cout << "I Op(/) "<< std::setw(15) << std::setiosflags(std::ios::left) << "| OP Divide " << "| ST ";
                     std::stack<Token*> a = postfix;
                     for (size_t i = 0; i < postfix.size() ; i++)
@@ -164,7 +194,9 @@ void Calculator::printSteps(void)
                 }
                 case '-':
                 {
-                    postfix.push(new Number(a - b));
+                    Number *n = new Number(a - b);
+                    tokens.push_back(n);
+                    postfix.push(n);
                     std::cout << "I Op(-) "<< std::setw(15) << std::setiosflags(std::ios::left) << "| OP Substruct " << "| ST ";
                     std::stack<Token*> a = postfix;
                     for (size_t i = 0; i < postfix.size() ; i++)
@@ -177,7 +209,9 @@ void Calculator::printSteps(void)
                 }
                 case '*':
                 {
-                    postfix.push(new Number(a * b));
+                    Number *n = new Number(a * b);
+                    postfix.push(n);
+                    tokens.push_back(n);
                     std::cout << "I Op(*) "<< std::setw(15) << std::setiosflags(std::ios::left) << "| OP Multiply " << "| ST ";
                     std::stack<Token*> a = postfix;
                     for (size_t i = 0; i < postfix.size() ; i++)

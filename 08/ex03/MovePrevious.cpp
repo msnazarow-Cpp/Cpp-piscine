@@ -9,12 +9,12 @@ Mindopen::MovePrevious::~MovePrevious()
 {
 }
 
-Mindopen::MovePrevious::MovePrevious(const MovePrevious& dec) 
+Mindopen::MovePrevious::MovePrevious(const MovePrevious&) 
 {
     
 }
 
-Mindopen::MovePrevious & Mindopen::MovePrevious::operator = (const MovePrevious& dec) 
+Mindopen::MovePrevious & Mindopen::MovePrevious::operator = (const MovePrevious&) 
 {
     return (*this);
 }

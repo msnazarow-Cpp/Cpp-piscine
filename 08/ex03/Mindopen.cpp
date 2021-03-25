@@ -11,25 +11,27 @@
 
 namespace Mindopen
 {
-    Mindopen::Mindopen() 
-    {
-        memory = std::string(2048, 0);
-        
-    }
+    Mindopen::Mindopen():memory(std::string(2048, 0)){}
     
-    Mindopen::Mindopen(const Mindopen &) 
+    Mindopen::Mindopen(const Mindopen & mind) 
     {
-        
+        *this = mind;
     }
 
-    Mindopen& Mindopen::operator=(const Mindopen &) 
+    Mindopen& Mindopen::operator=(const Mindopen & mind) 
     {
+        for (size_t i = 0; i < commands.size(); i++)
+            delete commands[i];
+        for (size_t i = 0; i < mind.commands.size(); i++)
+            commands.push_back(mind.commands[i]);
+        memory = mind.memory;
         return (*this);
     }
     
     Mindopen::~Mindopen() 
     {
-        
+        for (size_t i = 0; i < commands.size(); i++)
+            delete commands[i];
     }
     
     void Mindopen::read(std::ifstream & file) 
@@ -78,10 +80,5 @@ namespace Mindopen
             (*itIn)->execute(it, itIn);
         }
         
-    }
-    
-    bool Mindopen::checkalpha(char c) 
-    {
-        return (c == 'f' || c == 'u' || c == 'c' || c == 'k' || c == 'y' || c == 'o' || c == '[' || c == ']');
     }
 }

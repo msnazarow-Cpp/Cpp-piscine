@@ -14,9 +14,18 @@ int main(int argc, char const *argv[])
     if (argc != 2)
 		exit_error(1, "ERROR: Wrong number of arguments");
     Calculator calc;
-    calc.parse(argv[1]);
-    calc.printTokens();
-    calc.printPostfix();
-    calc.printSteps();
+    try
+    {
+        calc.parse(argv[1]);
+        calc.printTokens();
+        calc.printPostfix();
+        calc.printSteps();
+    }
+    catch(const std::exception& e)
+    {
+      std::cerr << e.what() << '\n';
+    }
+    
+    
     return 0;
 }

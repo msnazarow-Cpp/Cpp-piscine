@@ -6,8 +6,7 @@ public:
     Token();
     Token(const Token &);
     Token &operator=(const Token &);
-    ~Token();
+    virtual ~Token();
     virtual void print() const = 0;
-
 };
 

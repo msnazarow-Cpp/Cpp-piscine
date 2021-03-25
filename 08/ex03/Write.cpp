@@ -10,12 +10,12 @@ Mindopen::Write::~Write()
 {
 }
 
-Mindopen::Write::Write(const Write& dec) 
+Mindopen::Write::Write(const Write&) 
 {
     
 }
 
-Mindopen::Write & Mindopen::Write::operator = (const Write& dec) 
+Mindopen::Write & Mindopen::Write::operator = (const Write&) 
 {
     return (*this);
 }

@@ -1,6 +1,5 @@
 #pragma once
 #include <fstream>
-#include <array>
 #include <queue>
 #include <cstdlib>
 
@@ -26,6 +25,5 @@ namespace Mindopen {
 	private:
 		std::vector<Instruction*> commands;
 		std::string memory;
-		static bool checkalpha(char c);
 	};
 }

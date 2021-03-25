@@ -9,12 +9,12 @@ Mindopen::Dec::~Dec()
 {
 }
 
-Mindopen::Dec::Dec(const Dec& dec) 
+Mindopen::Dec::Dec(const Dec&) 
 {
     
 }
 
-Mindopen::Dec & Mindopen::Dec::operator = (const Dec& dec) 
+Mindopen::Dec & Mindopen::Dec::operator = (const Dec&) 
 {
     return (*this);
 }

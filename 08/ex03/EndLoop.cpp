@@ -9,12 +9,12 @@ Mindopen::EndLoop::~EndLoop()
 {
 }
 
-Mindopen::EndLoop::EndLoop(const EndLoop& dec) 
+Mindopen::EndLoop::EndLoop(const EndLoop&) 
 {
     
 }
 
-Mindopen::EndLoop & Mindopen::EndLoop::operator = (const EndLoop& dec) 
+Mindopen::EndLoop & Mindopen::EndLoop::operator = (const EndLoop&) 
 {
     return (*this);
 }

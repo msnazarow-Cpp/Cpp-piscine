@@ -11,7 +11,7 @@ Number::Number(const Number &num):n(num.n)
     
 }
 
-Number& Number::operator=(const Number & number) 
+Number& Number::operator=(const Number &) 
 {
     return (*this);
 }

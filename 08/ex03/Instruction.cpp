@@ -14,7 +14,7 @@ Mindopen::Instruction::Instruction(const Instruction& dec)
     *this = dec;
 }
 
-Mindopen::Instruction & Mindopen::Instruction::operator = (const Instruction& dec) 
+Mindopen::Instruction & Mindopen::Instruction::operator = (const Instruction&) 
 {
     return (*this);
 }

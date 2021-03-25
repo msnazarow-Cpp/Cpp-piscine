@@ -4,12 +4,12 @@ Token::Token()
 {
 }
 
-Token::Token(const Token & token)
+Token::Token(const Token &)
 {
     
 }
 
-Token& Token::operator=(const Token & token)
+Token& Token::operator=(const Token &)
 {
     return (*this);
 }

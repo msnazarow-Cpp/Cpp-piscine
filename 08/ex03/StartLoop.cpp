@@ -10,12 +10,12 @@ Mindopen::StartLoop::~StartLoop()
 {
 }
 
-Mindopen::StartLoop::StartLoop(const StartLoop& dec) 
+Mindopen::StartLoop::StartLoop(const StartLoop&) 
 {
     
 }
 
-Mindopen::StartLoop & Mindopen::StartLoop::operator = (const StartLoop& dec) 
+Mindopen::StartLoop & Mindopen::StartLoop::operator = (const StartLoop&) 
 {
     return (*this);
 }

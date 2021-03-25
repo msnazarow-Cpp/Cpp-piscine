@@ -1,5 +1,4 @@
 #pragma once
-#include <array>
 #include "Mindopen.hpp"
 #include "Instruction.hpp"
 class Mindopen::Read : public Instruction

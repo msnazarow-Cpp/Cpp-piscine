@@ -9,12 +9,12 @@ Mindopen::MoveNext::~MoveNext()
 {
 }
 
-Mindopen::MoveNext::MoveNext(const MoveNext& dec) 
+Mindopen::MoveNext::MoveNext(const MoveNext&) 
 {
     
 }
 
-Mindopen::MoveNext & Mindopen::MoveNext::operator = (const MoveNext& dec) 
+Mindopen::MoveNext & Mindopen::MoveNext::operator = (const MoveNext&) 
 {
     return (*this);
 }

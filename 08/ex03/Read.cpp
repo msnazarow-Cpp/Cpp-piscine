@@ -10,12 +10,12 @@ Mindopen::Read::~Read()
 {
 }
 
-Mindopen::Read::Read(const Read& dec) 
+Mindopen::Read::Read(const Read&) 
 {
     
 }
 
-Mindopen::Read & Mindopen::Read::operator = (const Read& dec) 
+Mindopen::Read & Mindopen::Read::operator = (const Read&) 
 {
     return (*this);
 }

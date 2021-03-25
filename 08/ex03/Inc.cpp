@@ -9,12 +9,12 @@ Mindopen::Inc::~Inc()
 {
 }
 
-Mindopen::Inc::Inc(const Inc& dec) 
+Mindopen::Inc::Inc(const Inc&) 
 {
     
 }
 
-Mindopen::Inc & Mindopen::Inc::operator = (const Inc& dec) 
+Mindopen::Inc & Mindopen::Inc::operator = (const Inc&) 
 {
     return (*this);
 }
