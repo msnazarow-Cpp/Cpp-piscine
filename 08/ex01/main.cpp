@@ -1,7 +1,7 @@
 #include "Span.hpp"
 #include <cstdlib>
 #include <iostream>
-
+#include <climits>
 int main(void)
 {
 	{
@@ -31,7 +31,7 @@ int main(void)
 		{
 			for (int i = 0; i < 10000; i++)
 			{
-				a.addnumber(rand() - 5000000);
+				a.addnumber(rand() % 10000 - 5000);
 				std::cout << a[i] << std::endl;
 			}
 		}
@@ -42,8 +42,7 @@ int main(void)
 		std::cout << "longestSpan: " << a.longestSpan() << std::endl;
 		std::cout << "shortestSpan: " << a.shortestSpan() << std::endl;
 	}
-	std::cout << "Continue ? ";
-	std::cin.get();
+
 	Span a(1000);
 	try
 	{

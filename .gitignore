@@ -1,8 +1,10 @@
 *
 !*.*
 !*/
-.vscode
 !Makefile
 *.o
-a.out
+a.*
 *.d
+.vs
+*.exe
+*.json

@@ -1,6 +1,6 @@
 #include "Span.hpp"
 #include <algorithm>
-#include <limits>
+#include <climits>
 
 void Span::addnumber(int n) {
 	if (_current >= this->size())
@@ -54,7 +54,7 @@ int Span::longestSpan()
 }
 
 int Span::shortestSpan() {
-	int minSpan = __INT_MAX__;
+	int minSpan = INT_MAX;
 
 	for (size_t i = 0 ; i < _current - 1; i++)
 	{

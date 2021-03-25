@@ -1,6 +1,6 @@
 #include <fstream>
 #include <iostream>
-#include <string.h>
+#include <cstring>
 #include <sys/stat.h>
 
 std::string replaceSubstr(std::string str,const char *str1,const char *str2)
